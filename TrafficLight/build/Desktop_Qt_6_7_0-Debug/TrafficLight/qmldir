@@ -1,0 +1,5 @@
+module TrafficLight
+typeinfo appTrafficLight.qmltypes
+prefer :/TrafficLight/
+Main 1.0 Main.qml
+

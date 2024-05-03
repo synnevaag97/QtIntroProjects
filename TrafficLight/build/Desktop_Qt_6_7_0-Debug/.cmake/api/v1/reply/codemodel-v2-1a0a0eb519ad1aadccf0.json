@@ -1,0 +1,169 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-ab36ed41103a7529ed7e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "TrafficLight",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint-Debug-95cf4d1d9540e402943f.json",
+					"name" : "all_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_json-Debug-37b1b5281c60f7c14bf7.json",
+					"name" : "all_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_module-Debug-126549fd8e919e7d0f2d.json",
+					"name" : "all_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmltyperegistrations::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmltyperegistrations-Debug-fb25ce40261fcf4561a4.json",
+					"name" : "all_qmltyperegistrations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appTrafficLight::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appTrafficLight-Debug-587fde804f69294bf765.json",
+					"name" : "appTrafficLight",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appTrafficLight_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appTrafficLight_autogen-Debug-fa5aad7cb1c50a14598f.json",
+					"name" : "appTrafficLight_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appTrafficLight_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appTrafficLight_autogen_timestamp_deps-Debug-f645014a9c1872cb9b34.json",
+					"name" : "appTrafficLight_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appTrafficLight_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appTrafficLight_qmlimportscan-Debug-6cd3a9a0c128250af8e8.json",
+					"name" : "appTrafficLight_qmlimportscan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appTrafficLight_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appTrafficLight_qmllint-Debug-95d313281a03f41459ce.json",
+					"name" : "appTrafficLight_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appTrafficLight_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appTrafficLight_qmllint_json-Debug-00407c7236c4696bdf94.json",
+					"name" : "appTrafficLight_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appTrafficLight_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appTrafficLight_qmllint_module-Debug-2d68c5bc84bbbe68d03d.json",
+					"name" : "appTrafficLight_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appTrafficLight_qmltyperegistration::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appTrafficLight_qmltyperegistration-Debug-390591bc1615635150e7.json",
+					"name" : "appTrafficLight_qmltyperegistration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appTrafficLight_tooling::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appTrafficLight_tooling-Debug-7c8180cee07b4f59683c.json",
+					"name" : "appTrafficLight_tooling",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight/build/Desktop_Qt_6_7_0-Debug",
+		"source" : "/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

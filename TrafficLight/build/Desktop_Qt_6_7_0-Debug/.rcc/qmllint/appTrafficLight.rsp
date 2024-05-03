@@ -1,0 +1,10 @@
+--bare
+-I
+/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight/build/Desktop_Qt_6_7_0-Debug
+-I
+/home/tsg/Qt/6.7.0/gcc_64/./qml
+--resource
+/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight/build/Desktop_Qt_6_7_0-Debug/.rcc/qmake_TrafficLight.qrc
+--resource
+/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight/build/Desktop_Qt_6_7_0-Debug/.rcc/appTrafficLight_raw_qml_0.qrc
+/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight/Main.qml

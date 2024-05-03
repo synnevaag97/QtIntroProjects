@@ -1,0 +1,14 @@
+-rootPath
+/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight
+-cmake-output
+-output-file
+/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight/build/Desktop_Qt_6_7_0-Debug/.qt_plugins/Qt6_QmlPlugins_Imports_appTrafficLight.cmake
+-importPath
+/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight/build/Desktop_Qt_6_7_0-Debug/TrafficLight
+-importPath
+/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight/build/Desktop_Qt_6_7_0-Debug
+-importPath
+/home/tsg/Qt/6.7.0/gcc_64/./qml
+-qrcFiles
+/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight/build/Desktop_Qt_6_7_0-Debug/.rcc/qmake_TrafficLight.qrc
+/home/tsg/Documents/QtProjects/QtIntroProjects/TrafficLight/build/Desktop_Qt_6_7_0-Debug/.rcc/appTrafficLight_raw_qml_0.qrc
