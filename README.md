@@ -1,16 +1,19 @@
 # QtIntroProjects
 This repo takes on various Qt intro projects to learn Qt. 
 
+The first four tasks is mainly QML programming to learn the language and some of its modules or elements. 
+
 ## Install
-Follow this guide: 
+Follow this guide for windows 11:
 https://www.youtube.com/watch?v=OoVNt-KJ96w
+
+or this for ubuntu 22.04:
+https://www.youtube.com/watch?v=sjApF6qnyUI
 
 ## Traffic Light
 Task based on https://www.qt.io/product/qt6/qml-book/ch05-fluid-states-transitions. A simple traffic light.  
 
 Introduces states and transitions when using QML in Qt Quick. 
-
-
 
 ## Mouse Events
 https://doc.qt.io/qt-6/qtquick-input-mouseevents.html
@@ -36,3 +39,7 @@ Task to understands anchors of containers and how to change anchors with states 
 
 ##  QML Tutorial
 The QML tutorial found at https://doc.qt.io/qt-6/qml-tutorial1.html. 
+
+
+## Qt Widget Tutorial
+https://doc.qt.io/qt-6/widgets-tutorial.html
