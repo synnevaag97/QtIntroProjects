@@ -43,3 +43,7 @@ The QML tutorial found at https://doc.qt.io/qt-6/qml-tutorial1.html.
 
 ## Qt Widget Tutorial
 https://doc.qt.io/qt-6/widgets-tutorial.html
+
+For more details on item models visit: https://doc.qt.io/qt-6/examples-itemviews.html
+For more detail on model/view programming visit: https://doc.qt.io/qt-6/model-view-programming.html
+

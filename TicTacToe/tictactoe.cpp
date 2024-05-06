@@ -77,6 +77,10 @@ void TicTacToe::handleButton(){
     if (checkWinner(buttonClicked)){
         // We have a winner. If not continues.
         qInfo("Winner winner chicken dinner! Player: %d Won", buttonClicked->player);
+        QMessageBox::information(
+            this,
+            tr("Winner!"),
+            tr("Winner winner chicken dinner! Player: %1 Won").arg(buttonClicked->player) );
     }
 }
 
