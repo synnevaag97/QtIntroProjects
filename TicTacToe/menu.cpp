@@ -4,17 +4,17 @@ menu::menu(QWidget *parent)
     : QWidget{parent}
 {
 
-    menuLayout = new QGridLayout;
+    menuLayout = new QBoxLayout(QBoxLayout::Direction::TopToBottom);
 
     start_button = new QPushButton("Start Game");
     //two_player_button = new QPushButton("Two Player");
     //settings_button = new QPushButton("Settings");
     quit_button = new QPushButton("Quit");
 
-    menuLayout->addWidget(start_button, 0,0);
+    menuLayout->addWidget(start_button);
     //menuLayout->addWidget(two_player_button, 1,0);
     //menuLayout->addWidget(settings_button, 2,0);
-    menuLayout->addWidget(quit_button, 3,0);
+    menuLayout->addWidget(quit_button);
     setLayout(menuLayout);
 
     connect(start_button, &Box::clicked, this, &menu::startButtonClicked);

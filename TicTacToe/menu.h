@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QPushButton>
-#include <QGridLayout>
+#include <QBoxLayout>
 
 #include "box.h"
 
@@ -19,7 +19,7 @@ public:
     //QPushButton *settings_button;
     QPushButton *quit_button;
 
-    QGridLayout *menuLayout;
+    QBoxLayout *menuLayout;
 
     void startButtonClicked();
     void quitButtonClicked();

@@ -19,7 +19,9 @@ class TicTacToe : public  QWidget
 public:
     TicTacToe(QWidget *parent = nullptr);
 
-    int whos_turn; // 0 for player 1, 1 for player 2.
+    int whos_turn = -1; // 0 for player 1, 1 for player 2.
+    int marked_tiles = 0;
+
     Box *button11;// = new QPushButton("Button 11");
     Box *button12;// = new QPushButton("Button 12");
     Box *button13;// = new QPushButton("Button 13");

@@ -59,6 +59,9 @@ void TicTacToe::handleButton(){
     if (!buttonClicked)
         return;
 
+    marked_tiles++;
+    qInfo("Marked tiles: %d ", marked_tiles);
+
     if(whos_turn == 0){
         buttonClicked->setText("X");
         whos_turn = 1;
@@ -74,8 +77,18 @@ void TicTacToe::handleButton(){
         qInfo("Winner winner chicken dinner! Player: %d Won", buttonClicked->player);
         QMessageBox::information(
             this,
-            tr("Winner!"),
+            tr("Game over!"),
             tr("Winner winner chicken dinner! Player: %1 Won").arg(buttonClicked->player) );
+
+        emit gameCompleted();
+        restart();
+    } else if(marked_tiles == 9){
+        // Game is a tie.
+        qInfo("It's a tie!");
+        QMessageBox::information(
+            this,
+            tr("Game over!"),
+            tr("It's a tie!") );
 
         emit gameCompleted();
         restart();
@@ -86,6 +99,7 @@ void TicTacToe::handleButton(){
 bool TicTacToe::checkWinner(Box *buttonClicked){
     // When on click check if we have a winner.
     bool finished = false;
+
     // Determine which button was clicked
     if (buttonClicked == button11) {
         // Check row1, col1 and diag1
@@ -217,6 +231,9 @@ bool TicTacToe::checkDiag2(int player_mark){
 }
 
 void TicTacToe::restart(){
+
+    marked_tiles = 0;
+
     button11->setText("");
     button11->player = -1;
 

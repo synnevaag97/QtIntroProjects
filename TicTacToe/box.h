@@ -13,6 +13,8 @@ public:
     explicit Box(QPushButton *parent = nullptr);
 
     int player;
+    int height = 100;
+    int width = 100;
 };
 
 #endif // BOX_H
