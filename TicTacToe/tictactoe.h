@@ -9,6 +9,7 @@
 #include <QtLogging>
 
 #include "box.h"
+#include "menu.h"
 
 
 class TicTacToe : public  QWidget
@@ -31,12 +32,13 @@ public:
     Box *button32;// = new QPushButton("Button 32");
     Box *button33;// = new QPushButton("Button 33");
 
-    void handleButton();
 
+    QGridLayout *tictacLayout;
+
+    void handleButton();
 
     bool checkWinner(Box *buttonClicked);
     bool checkRow1(int player_mark);
-
 
     bool checkRow2(int player_mark);
     bool checkRow3(int player_mark);
@@ -45,6 +47,13 @@ public:
     bool checkCol3(int player_mark);
     bool checkDiag1(int player_mark);
     bool checkDiag2(int player_mark);
+
+    void restart();
+
+    menu *menuObject;
+
+signals:
+    void gameCompleted();
 
 };
 #endif // TICTACTOE_H

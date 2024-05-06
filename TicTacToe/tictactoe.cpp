@@ -8,10 +8,9 @@ TicTacToe::TicTacToe(QWidget *parent)
     : QWidget(parent)
 {
 
+    tictacLayout = new QGridLayout;
 
-    QGridLayout *mainLayout = new QGridLayout;
-
-    // Create three buttons
+    // Create three x three buttons
     button11 = new Box();
     button12 = new Box();
     button13 = new Box();
@@ -24,25 +23,21 @@ TicTacToe::TicTacToe(QWidget *parent)
     button32 = new Box();
     button33 = new Box();
 
-    //QLabel *label = new QLabel(QApplication::translate("windowlayout", "Name:"));
-
     // Create a 3x3 grid for the game
     //QGridLayout *mainLayout = new QGridLayout;
-    mainLayout->addWidget(button11, 0, 0);  // Add button1 at row 0, column 0
-    mainLayout->addWidget(button12, 0, 1);  // Add button2 at row 0, column 1
-    mainLayout->addWidget(button13, 0, 2);  // Add button3 spanning from row 1 to row 2 and column 0 to column 1
+    tictacLayout->addWidget(button11, 0, 0);  // Add button1 at row 0, column 0
+    tictacLayout->addWidget(button12, 0, 1);  // Add button2 at row 0, column 1
+    tictacLayout->addWidget(button13, 0, 2);  // Add button3 spanning from row 1 to row 2 and column 0 to column 1
 
-    mainLayout->addWidget(button21, 1, 0);
-    mainLayout->addWidget(button22, 1, 1);
-    mainLayout->addWidget(button23, 1, 2);
+    tictacLayout->addWidget(button21, 1, 0);
+    tictacLayout->addWidget(button22, 1, 1);
+    tictacLayout->addWidget(button23, 1, 2);
 
-    mainLayout->addWidget(button31, 2, 0);
-    mainLayout->addWidget(button32, 2, 1);
-    mainLayout->addWidget(button33, 2, 2);
+    tictacLayout->addWidget(button31, 2, 0);
+    tictacLayout->addWidget(button32, 2, 1);
+    tictacLayout->addWidget(button33, 2, 2);
 
-    //QVBoxLayout *layout = new QVBoxLayout(parent);
-    //mainLayout->addWidget(label, 2, 0, 1, 2);
-    setLayout(mainLayout);
+    setLayout(tictacLayout);
 
     // Connect buttons to handle on clicked.
     connect(button11, &Box::clicked, this, &TicTacToe::handleButton);
@@ -81,6 +76,9 @@ void TicTacToe::handleButton(){
             this,
             tr("Winner!"),
             tr("Winner winner chicken dinner! Player: %1 Won").arg(buttonClicked->player) );
+
+        emit gameCompleted();
+        restart();
     }
 }
 
@@ -218,3 +216,31 @@ bool TicTacToe::checkDiag2(int player_mark){
     return false;
 }
 
+void TicTacToe::restart(){
+    button11->setText("");
+    button11->player = -1;
+
+    button12->setText("");
+    button12->player = -1;
+
+    button13->setText("");
+    button13->player = -1;
+
+    button21->setText("");
+    button21->player = -1;
+
+    button22->setText("");
+    button22->player = -1;
+
+    button23->setText("");
+    button23->player = -1;
+
+    button31->setText("");
+    button31->player = -1;
+
+    button32->setText("");
+    button32->player = -1;
+
+    button33->setText("");
+    button33->player = -1;
+}
