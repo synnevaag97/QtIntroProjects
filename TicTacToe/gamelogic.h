@@ -25,9 +25,12 @@ public:
     void init();
 
     QVector<QVector<int>> gameState;
-    int whos_turn; // 1 for player 1, 2 for player 2.
-    int marked_tiles;
-    QLabel *current_player_label;
+    int current_player; // 1 for player 1, 2 for player 2.
+    int num_marked_tiles;
+
+    // Player names extracted from player registration.
+    QString player1Name;
+    QString player2Name;
 
     bool checkWinner(Box *box);
     bool checkRow1(int player_mark);
@@ -52,6 +55,7 @@ signals:
 
 public slots:
     void buttonPressed(Box *box);
+    void setPlayerNames(QString p1, QString p2);
 };
 
 #endif // GAMELOGIC_H

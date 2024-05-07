@@ -3,9 +3,10 @@
 
 #include <QMainWindow>
 
-#include "tictactoeboard.h"
-#include "gamemenu.h"
 #include "gamelogic.h"
+#include "gamemenu.h"
+#include "playerregistration.h"
+#include "tictactoeboard.h"
 
 class MainWindow : public QMainWindow
 {
@@ -16,16 +17,17 @@ public:
     TicTacToeBoard *w;
     GameMenu *v;
     GameLogic *g;
+    PlayerRegistration *p;
     QVBoxLayout *layout;
     //QWidget *centralWidget;
 
 signals:
 
 public slots:
+    void showPlayerRegistration();
     void showTicTacToe();
     void showMenu();
     void quitApplication();
-
 };
 
 #endif // MAINWINDOW_H
