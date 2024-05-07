@@ -3,8 +3,9 @@
 
 #include <QMainWindow>
 
-#include "tictactoe.h"
-#include "menu.h"
+#include "tictactoeboard.h"
+#include "gamemenu.h"
+#include "gamelogic.h"
 
 class MainWindow : public QMainWindow
 {
@@ -12,8 +13,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 
-    TicTacToe *w;
-    menu *v;
+    TicTacToeBoard *w;
+    GameMenu *v;
+    GameLogic *g;
     QVBoxLayout *layout;
     //QWidget *centralWidget;
 

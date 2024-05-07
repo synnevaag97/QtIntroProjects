@@ -1,9 +1,9 @@
 #include "box.h"
 
-Box::Box(QPushButton *parent)
-    : QPushButton{parent}
+Box::Box(int row, int col, QPushButton *parent)
+    : QPushButton{parent}, location{row,col}
 {
-    player = -1;
+    //player = -1;
     this->setMinimumHeight(height);
     this->setMinimumWidth(width);
 }

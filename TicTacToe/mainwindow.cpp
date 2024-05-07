@@ -4,11 +4,21 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow{parent}
 {
 
-    w = new TicTacToe;
-    v = new menu;
-    QObject::connect(v, &menu::startButtonPressed, this, &MainWindow::showTicTacToe);
-    QObject::connect(w, &TicTacToe::gameCompleted, this, &MainWindow::showMenu);
-    QObject::connect(v, &menu::quitButtonPressed, this, &MainWindow::quitApplication);
+    w = new TicTacToeBoard;
+    v = new GameMenu;
+    g = new GameLogic;
+
+    // Callbacks for menu buttons.
+    QObject::connect(v, &GameMenu::multiplayerButtonPressed, this, &MainWindow::showTicTacToe);
+    QObject::connect(v, &GameMenu::quitButtonPressed, this, &MainWindow::quitApplication);
+
+
+    // Callbacks for ingame logics.
+    QObject::connect(g, &GameLogic::updateTextLabel, w, &TicTacToeBoard::updateTextLabel);
+    QObject::connect(g, &GameLogic::updateBoxText, w, &TicTacToeBoard::updateBoxText);
+    QObject::connect(g, &GameLogic::gameCompleted, w, &TicTacToeBoard::gameCompleted);
+    QObject::connect(w, &TicTacToeBoard::buttonPressed, g, &GameLogic::buttonPressed);
+    QObject::connect(g, &GameLogic::gameCompleted, this, &MainWindow::showMenu);
 
     layout = new QVBoxLayout;
     layout->addWidget(w);
