@@ -7,14 +7,19 @@
 TicTacToeBoard::TicTacToeBoard(QWidget *parent)
     : QWidget(parent)
 {
+    // Create main layout and grid.
     QVBoxLayout *mainLayout = new QVBoxLayout();
     tictacLayout = new QGridLayout;
 
+    // Create label for stating player to play.
     current_player_label = new QLabel();
     current_player_label->setAlignment(Qt::AlignCenter);
     current_player_label->setText("");
+
+    // Add widget and layout to main layout.
     mainLayout->addWidget(current_player_label);
     mainLayout->addLayout(tictacLayout);
+    setLayout(mainLayout);
 
     // Create three x three buttons
     button11 = new Box(0, 0);
@@ -30,57 +35,55 @@ TicTacToeBoard::TicTacToeBoard(QWidget *parent)
     button33 = new Box(2, 2);
 
     // Create a 3x3 grid for the game
-    tictacLayout->addWidget(button11, 1, 0); // Add button1 at row 0, column 0
-    tictacLayout->addWidget(button12, 1, 1); // Add button2 at row 0, column 1
-    tictacLayout->addWidget(button13,
-                            1,
-                            2); // Add button3 spanning from row 1 to row 2 and column 0 to column 1
+    tictacLayout->addWidget(button11, 0, 0);
+    tictacLayout->addWidget(button12, 0, 1);
+    tictacLayout->addWidget(button13, 0, 2);
 
-    tictacLayout->addWidget(button21, 2, 0);
-    tictacLayout->addWidget(button22, 2, 1);
-    tictacLayout->addWidget(button23, 2, 2);
+    tictacLayout->addWidget(button21, 1, 0);
+    tictacLayout->addWidget(button22, 1, 1);
+    tictacLayout->addWidget(button23, 1, 2);
 
-    tictacLayout->addWidget(button31, 3, 0);
-    tictacLayout->addWidget(button32, 3, 1);
-    tictacLayout->addWidget(button33, 3, 2);
+    tictacLayout->addWidget(button31, 2, 0);
+    tictacLayout->addWidget(button32, 2, 1);
+    tictacLayout->addWidget(button33, 2, 2);
 
-    setLayout(mainLayout);
+    // Connect buttons to handle when clicked.
+    connect(button11, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
+    connect(button12, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
+    connect(button13, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
 
-    // Connect buttons to handle on clicked.
-    connect(button11, &Box::clicked, this, &TicTacToeBoard::handleButton);
-    connect(button12, &Box::clicked, this, &TicTacToeBoard::handleButton);
-    connect(button13, &Box::clicked, this, &TicTacToeBoard::handleButton);
+    connect(button21, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
+    connect(button22, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
+    connect(button23, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
 
-    connect(button21, &Box::clicked, this, &TicTacToeBoard::handleButton);
-    connect(button22, &Box::clicked, this, &TicTacToeBoard::handleButton);
-    connect(button23, &Box::clicked, this, &TicTacToeBoard::handleButton);
-
-    connect(button31, &Box::clicked, this, &TicTacToeBoard::handleButton);
-    connect(button32, &Box::clicked, this, &TicTacToeBoard::handleButton);
-    connect(button33, &Box::clicked, this, &TicTacToeBoard::handleButton);
+    connect(button31, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
+    connect(button32, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
+    connect(button33, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
 }
 
-void TicTacToeBoard::handleButton()
+void TicTacToeBoard::boxPressedHandle()
 {
     lastButtonClicked = qobject_cast<Box *>(sender());
     if (!lastButtonClicked)
         return;
 
-    emit buttonPressed(
-        lastButtonClicked); // Send the pressed button to gameLogic to update stuff. Since it points to the button the gameLogic should be able to update the text of the box.
+    // Send the pressed button to gameLogic to update stuff. Since it points to the button the gameLogic should be able to update the text of the box.
+    emit buttonPressed(lastButtonClicked);
 }
 
 void TicTacToeBoard::updateTextLabel(const QString s)
 {
+    // Change so we get the name and update the text sprcifically here.
     current_player_label->setText(s);
 }
 
 void TicTacToeBoard::updateBoxText(const QString s)
 {
+    // Update so we get the player sign and have the string here instead?
     lastButtonClicked->setText(s);
 }
 
-void TicTacToeBoard::gameCompleted()
+void TicTacToeBoard::resetBoard()
 {
     button11->setText("");
     button12->setText("");

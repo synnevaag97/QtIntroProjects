@@ -25,7 +25,7 @@ public:
     void quitButtonClicked();
 
 signals:
-    void multiplayerButtonPressed();
+    void multiplayerSeleced();
     void quitButtonPressed();
 };
 

@@ -36,7 +36,7 @@ void GameMenu::multiplayerButtonClicked()
 {
     // Code for handling start button click...
 
-    emit multiplayerButtonPressed(); // Emit the signal when the start button is clicked
+    emit multiplayerSeleced(); // Emit the signal when the start button is clicked
 }
 
 void GameMenu::quitButtonClicked()

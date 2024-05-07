@@ -11,41 +11,16 @@
 #include <QtLogging>
 
 #include "box.h"
-
-enum PlayerMark {
-    X = 1,
-    O = 2
-};
+#include "gamestate.h"
 
 class GameLogic : public QObject
 {
     Q_OBJECT
 public:
+    GameState state;
+
     GameLogic();
-    void init();
-
-    QVector<QVector<int>> gameState;
-    int current_player; // 1 for player 1, 2 for player 2.
-    int num_marked_tiles;
-
-    // Player names extracted from player registration.
-    QString player1Name;
-    QString player2Name;
-
-    bool checkWinner(Box *box);
-    bool checkRow1(int player_mark);
-    bool checkRow2(int player_mark);
-    bool checkRow3(int player_mark);
-    bool checkCol1(int player_mark);
-    bool checkCol2(int player_mark);
-    bool checkCol3(int player_mark);
-    bool checkDiag1(int player_mark);
-    bool checkDiag2(int player_mark);
-
-    bool isLegalMove(Box *box);
-    bool checkTie();
     void nextTurn();
-    void updateGameState(Box *box);
     void restart();
 
 signals:
