@@ -61,10 +61,9 @@ Creating a TicTacToe game.
 | 5 | Advanced computer | Play agains a computer with a strategie. | | 
 | 6 | AI computer | Play agains a AI computer. | | 
 | 7   | Menu with 1 and 2 player | Create a menu that can choose to play computer (1 player) or against friend (2 player) | ✅ |
-| 8 | Add Clang and building with github actions| |  |
-| 9 | Player registration | |  |
-| 10 | Player scoreboard | |  |
-| 11 | Adjustable boardsize | Let the user decide the size of the board. |  |
+| 8 | Player registration | |  |
+| 9 | Player scoreboard | |  |
+| 10 | Adjustable boardsize | Let the user decide the size of the board. |  |
 
 
 
