@@ -52,6 +52,8 @@ For more detail on model/view programming visit: https://doc.qt.io/qt-6/model-vi
 ## TicTacToe
 Creating a TicTacToe game. 
 
+Inspiration for TicTacToe bots: https://thesharperdev.com/coding-the-perfect-tic-tac-toe-bot/
+
 | Task  | Name | Description | Completed |
 | ------------- |  ------------- | ------------- | ------------- |
 | 1 | Simple functioning version | Simple tictactoe that declares a winner with 3 in a row.  | ✅ |
