@@ -30,7 +30,8 @@ public:
     */
     QGridLayout *tictacLayout;
     QLabel *current_player_label;
-
+    QVector<Box *> boxes;
+    /*
     Box *button11;
     Box *button12;
     Box *button13;
@@ -40,10 +41,11 @@ public:
     Box *button31;
     Box *button32;
     Box *button33;
+    */
 
     Box *lastButtonClicked;
 
-    void boxPressedHandle();
+    void boxPressedHandle(bool p);
 
 signals:
     void buttonPressed(Box *box);
@@ -53,5 +55,6 @@ public slots:
     void updateTextLabel(const QString s);
     void updateBoxText(const QString s);
     void resetBoard();
+    void computerMove(int move);
 };
 #endif // TICTACTOEBOARD_H

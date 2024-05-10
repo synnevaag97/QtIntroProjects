@@ -28,15 +28,23 @@ GameMenu::GameMenu(QWidget *parent)
     menuLayout->addWidget(quitButton);
     setLayout(menuLayout);
 
-    connect(multiplayerButton, &Box::clicked, this, &GameMenu::multiplayerButtonClicked);
+    connect(singleplayerButton, &Box::clicked, this, &GameMenu::singlePlayerButtonClicked);
+    connect(multiplayerButton, &Box::clicked, this, &GameMenu::multiPlayerButtonClicked);
     connect(quitButton, &Box::clicked, this, &GameMenu::quitButtonClicked);
 }
 
-void GameMenu::multiplayerButtonClicked()
+void GameMenu::singlePlayerButtonClicked()
 {
     // Code for handling start button click...
 
-    emit multiplayerSeleced(); // Emit the signal when the start button is clicked
+    emit singlePlayerSeleced(); // Emit the signal when the start button is clicked
+}
+
+void GameMenu::multiPlayerButtonClicked()
+{
+    // Code for handling start button click...
+
+    emit multiPlayerSeleced(); // Emit the signal when the start button is clicked
 }
 
 void GameMenu::quitButtonClicked()

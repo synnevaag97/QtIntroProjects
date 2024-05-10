@@ -21,11 +21,13 @@ public:
 
     QBoxLayout *menuLayout;
 
-    void multiplayerButtonClicked();
+    void singlePlayerButtonClicked();
+    void multiPlayerButtonClicked();
     void quitButtonClicked();
 
 signals:
-    void multiplayerSeleced();
+    void singlePlayerSeleced();
+    void multiPlayerSeleced();
     void quitButtonPressed();
 };
 

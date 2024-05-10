@@ -22,46 +22,33 @@ TicTacToeBoard::TicTacToeBoard(QWidget *parent)
     setLayout(mainLayout);
 
     // Create three x three buttons
-    button11 = new Box(0, 0);
-    button12 = new Box(0, 1);
-    button13 = new Box(0, 2);
-
-    button21 = new Box(1, 0);
-    button22 = new Box(1, 1);
-    button23 = new Box(1, 2);
-
-    button31 = new Box(2, 0);
-    button32 = new Box(2, 1);
-    button33 = new Box(2, 2);
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            Box *button = new Box(i, j);
+            boxes.push_back(button);
+        }
+    }
 
     // Create a 3x3 grid for the game
-    tictacLayout->addWidget(button11, 0, 0);
-    tictacLayout->addWidget(button12, 0, 1);
-    tictacLayout->addWidget(button13, 0, 2);
 
-    tictacLayout->addWidget(button21, 1, 0);
-    tictacLayout->addWidget(button22, 1, 1);
-    tictacLayout->addWidget(button23, 1, 2);
-
-    tictacLayout->addWidget(button31, 2, 0);
-    tictacLayout->addWidget(button32, 2, 1);
-    tictacLayout->addWidget(button33, 2, 2);
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            int index = i * 3 + j;
+            tictacLayout->addWidget(boxes[index], i, j);
+        }
+    }
 
     // Connect buttons to handle when clicked.
-    connect(button11, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
-    connect(button12, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
-    connect(button13, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
 
-    connect(button21, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
-    connect(button22, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
-    connect(button23, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
-
-    connect(button31, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
-    connect(button32, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
-    connect(button33, &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            int index = i * 3 + j;
+            connect(boxes[index], &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
+        }
+    }
 }
 
-void TicTacToeBoard::boxPressedHandle()
+void TicTacToeBoard::boxPressedHandle(bool p)
 {
     lastButtonClicked = qobject_cast<Box *>(sender());
     if (!lastButtonClicked)
@@ -85,16 +72,23 @@ void TicTacToeBoard::updateBoxText(const QString s)
 
 void TicTacToeBoard::resetBoard()
 {
-    button11->setText("");
-    button12->setText("");
-    button13->setText("");
-    button21->setText("");
-    button22->setText("");
-    button23->setText("");
-    button31->setText("");
-    button32->setText("");
-    button33->setText("");
-
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            int index = i * 3 + j;
+            boxes[index]->setText("");
+        }
+    }
     QString s = QString("Player 1(X) starts the game.");
     current_player_label->setText(s);
+}
+
+void TicTacToeBoard::computerMove(int move)
+{
+    //qDebug("Computer to move %s", boxes[move]->isEnabled() ? "true" : "false");
+    boxes[move]->animateClick();
+    lastButtonClicked = boxes[move];
+    //emit buttonPressed(boxes[move]);
+
+    /* When using click() i cannot get the button pressed with sender(). Therefore i need to provide additional info. 
+     * */
 }

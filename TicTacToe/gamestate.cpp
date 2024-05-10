@@ -41,9 +41,27 @@ bool GameState::checkTie()
     return false;
 }
 
-bool GameState::isLegalMove(Box *box)
+QVector<int> GameState::getLegalMoves()
 {
-    if (gameState[std::get<0>(box->location)][std::get<1>(box->location)] == -1) {
+    QVector<int> legalMoves;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (gameState[i][j] == -1) {
+                int index = i * 3 + j;
+                legalMoves.push_back(index);
+            }
+        }
+    }
+    return legalMoves;
+}
+
+bool GameState::isBoxMarked(Box *box)
+{
+    /*qInfo("Box that is being checked: %d , %d, %d",
+          std::get<0>(box->location),
+          std::get<1>(box->location),
+          gameState[std::get<0>(box->location)][std::get<1>(box->location)]);*/
+    if (gameState[std::get<0>(box->location)][std::get<1>(box->location)] != -1) {
         return true;
     }
     return false;

@@ -57,7 +57,7 @@ Creating a TicTacToe game.
 | 1 | Simple functioning version | Simple tictactoe that declares a winner with 3 in a row.  | ✅ |
 | 2 | Pop up window| Create a pop up window declaring winner and a tie.| ✅ |
 | 3   | Menu| Create a menu that start the game and closes the game.  | ✅ |
-| 4   | Play computer | Play against a computer that choose random tiles. |  |
+| 4   | Play computer | Play against a computer that choose random tiles. | ✅ |
 | 5 | Advanced computer | Play agains a computer with a strategie. | | 
 | 6 | AI computer | Play agains a AI computer. | | 
 | 7   | Menu with 1 and 2 player | Create a menu that can choose to play computer (1 player) or against friend (2 player) | ✅ |

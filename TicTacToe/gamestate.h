@@ -22,11 +22,12 @@ public:
 
     bool checkWinner();
     bool checkTie();
-    bool isLegalMove(Box *box);
     void updateGameState(Box *box);
     void setPlayerNames(QString p1, QString p2);
     void reset();
     void updatePlayerTurn();
+    bool isBoxMarked(Box *box);
+    QVector<int> getLegalMoves();
 
     int getMarkedBoxes();
     QString getPlayerName(int player);

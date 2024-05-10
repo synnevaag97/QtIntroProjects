@@ -6,6 +6,7 @@
 #include "gamelogic.h"
 #include "gamemenu.h"
 #include "multiplayerregistration.h"
+#include "singleplayerregistration.h"
 #include "tictactoeboard.h"
 
 class MainWindow : public QMainWindow
@@ -17,15 +18,19 @@ public:
     TicTacToeBoard *w;
     GameMenu *v;
     GameLogic *g;
-    MultiPlayerRegistration *p;
+    MultiPlayerRegistration *pm;
+    SinglePlayerRegistration *ps;
     QVBoxLayout *layout;
     //QWidget *centralWidget;
 
 signals:
+    void setGameMode(GameMode mode);
 
 public slots:
     void showMultiPlayerRegistration();
-    void showTicTacToe();
+    void showSinglePlayerRegistration();
+    void showTicTacToeSingle();
+    void showTicTacToeMulti();
     void showMenu();
     void quitApplication();
 };

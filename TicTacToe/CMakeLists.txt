@@ -28,8 +28,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         mainwindow.h mainwindow.cpp
         gamelogic.h gamelogic.cpp
         multiplayerregistration.h multiplayerregistration.cpp
-        dumcomputer.h dumcomputer.cpp
+
         gamestate.h gamestate.cpp
+        singleplayerregistration.h singleplayerregistration.cpp
+        easycomputer.h easycomputer.cpp
+        registration.h registration.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET TicTacToe APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

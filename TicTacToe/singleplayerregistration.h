@@ -1,5 +1,5 @@
-#ifndef MULTIPLAYERREGISTRATION_H
-#define MULTIPLAYERREGISTRATION_H
+#ifndef SINGLEPLAYERREGISTRATION_H
+#define SINGLEPLAYERREGISTRATION_H
 
 #include <QBoxLayout>
 #include <QGridLayout>
@@ -11,18 +11,11 @@
 
 #include "registration.h"
 
-/*
- * Class for 1 or 2 players to register their names. 
- * When sent to player registration we have input if it is single or multi. 
- * Depending on each of these we provide different menus and text over the menus. 
- * Also GameLogic must get info if it is single or multi?
- * Question is if this info should come when the object are initiated or when we press a button?
- * */
-class MultiPlayerRegistration : public QWidget
+class SinglePlayerRegistration : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MultiPlayerRegistration(QWidget *parent = nullptr);
+    explicit SinglePlayerRegistration(QWidget *parent = nullptr);
 
     QLabel *titleLabel;
     QLabel *player1Label;
@@ -51,9 +44,9 @@ private slots:
     void showDropDownMenu2();
 
 signals:
-    void startMultiPlayerGame();
+    void startSinglePlayerGame();
     void returnToMenu();
     void setPlayerNames(QString p1, QString p2);
 };
 
-#endif // MULTIPLAYERREGISTRATION_H
+#endif // SINGLEPLAYERREGISTRATION_H
