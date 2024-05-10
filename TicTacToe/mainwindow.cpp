@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     g = new GameLogic;
     pm = new MultiPlayerMenuWidget;
     ps = new SinglePlayerMenuWidget;
+    scoreboard = new ScoreboardWidget;
 
     // Callbacks for menu buttons.
     QObject::connect(v,
@@ -30,9 +31,12 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(v, &MainMenuWidget::quitButtonPressed, this, &MainWindow::quitApplication);
     QObject::connect(ps, &SinglePlayerMenuWidget::startGame, this, &MainWindow::showTicTacToeSingle);
     QObject::connect(pm, &MultiPlayerMenuWidget::startGame, this, &MainWindow::showTicTacToeMulti);
+    QObject::connect(v, &MainMenuWidget::scoreBoardPressed, this, &MainWindow::showScoreboard);
 
     QObject::connect(ps, &SinglePlayerMenuWidget::returnToMenu, this, &MainWindow::showMenu);
     QObject::connect(pm, &MultiPlayerMenuWidget::returnToMenu, this, &MainWindow::showMenu);
+
+    QObject::connect(scoreboard, &ScoreboardWidget::returnToMenu, this, &MainWindow::showMenu);
 
     // Callbacks for in-game communication between board and game logic.
     QObject::connect(g, &GameLogic::updateTextLabel, w, &TicTacToeBoardWidget::updateTextLabel);
@@ -58,9 +62,11 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(v);
     layout->addWidget(pm);
     layout->addWidget(ps);
+    layout->addWidget(scoreboard);
     ps->hide();
     pm->hide();
     w->hide();
+    scoreboard->hide();
 }
 
 void MainWindow::showSinglePlayerRegistration()
@@ -94,10 +100,18 @@ void MainWindow::showMenu()
     pm->hide();
     ps->hide();
     w->hide();
+    scoreboard->hide();
     v->show();
 }
 
 void MainWindow::quitApplication()
 {
     close();
+}
+
+void MainWindow::showScoreboard()
+{
+    v->hide();
+    scoreboard->updateModel();
+    scoreboard->show();
 }

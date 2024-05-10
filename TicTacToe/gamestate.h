@@ -34,6 +34,7 @@ public:
     QString getPlayerMark(int player);
     QString getCurrentPlayerName();
     QString getCurrentPlayerMark();
+    QString getOtherPlayerName();
 };
 
 #endif // GAMESTATE_H

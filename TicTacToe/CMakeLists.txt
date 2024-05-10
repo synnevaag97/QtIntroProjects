@@ -32,8 +32,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         gamestate.h gamestate.cpp
         singleplayermenuwidget.h singleplayermenuwidget.cpp
         easycomputer.h easycomputer.cpp
-        playernamefilemanager.h playernamefilemanager.cpp
+        playerdatafilemanager.h playerdatafilemanager.cpp
         playermenubasewidget.h playermenubasewidget.cpp
+        scoreboardwidget.h scoreboardwidget.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET TicTacToe APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

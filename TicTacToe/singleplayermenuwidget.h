@@ -9,14 +9,16 @@
 #include <QPushButton>
 #include <QWidget>
 
+#include "playerdatafilemanager.h"
 #include "playermenubasewidget.h"
-#include "playernamefilemanager.h"
 
 class SinglePlayerMenuWidget : public PlayerMenuBaseWidget
 {
     Q_OBJECT
 public:
     explicit SinglePlayerMenuWidget(PlayerMenuBaseWidget *parent = nullptr);
+
+    void sendPlayerNames() override;
 };
 
 #endif // SINGLEPLAYERMENUWIDGET_H

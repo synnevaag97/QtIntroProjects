@@ -18,18 +18,21 @@ MainMenuWidget::MainMenuWidget(QWidget *parent)
     multiplayerButton = new QPushButton("Multiplayer Game");
     multiplayerButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
-    //settings_button = new QPushButton("Settings");
+    scoreboardButton = new QPushButton("Scoreboard");
+    scoreboardButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+
     quitButton = new QPushButton("Quit");
     quitButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     menuLayout->addWidget(singleplayerButton);
     menuLayout->addWidget(multiplayerButton);
-    //menuLayout->addWidget(settings_button, 2,0);
+    menuLayout->addWidget(scoreboardButton);
     menuLayout->addWidget(quitButton);
     setLayout(menuLayout);
 
     connect(singleplayerButton, &Box::clicked, this, &MainMenuWidget::singlePlayerButtonClicked);
     connect(multiplayerButton, &Box::clicked, this, &MainMenuWidget::multiPlayerButtonClicked);
+    connect(scoreboardButton, &Box::clicked, this, &MainMenuWidget::scoreboardButtonClicked);
     connect(quitButton, &Box::clicked, this, &MainMenuWidget::quitButtonClicked);
 }
 
@@ -45,6 +48,10 @@ void MainMenuWidget::multiPlayerButtonClicked()
     emit multiPlayerSeleced();
 }
 
+void MainMenuWidget::scoreboardButtonClicked()
+{
+    emit scoreBoardPressed();
+}
 void MainMenuWidget::quitButtonClicked()
 {
     emit quitButtonPressed();

@@ -6,6 +6,7 @@
 #include "gamelogic.h"
 #include "mainmenuwidget.h"
 #include "multiplayermenuwidget.h"
+#include "scoreboardwidget.h"
 #include "singleplayermenuwidget.h"
 #include "tictactoeboardwidget.h"
 
@@ -23,12 +24,15 @@ public:
     QVBoxLayout *layout;
     //QWidget *centralWidget;
 
+    ScoreboardWidget *scoreboard;
+
 signals:
     void setGameMode(GameMode mode);
 
 public slots:
     void showMultiPlayerRegistration();
     void showSinglePlayerRegistration();
+    void showScoreboard();
     void showTicTacToeSingle();
     void showTicTacToeMulti();
     void showMenu();

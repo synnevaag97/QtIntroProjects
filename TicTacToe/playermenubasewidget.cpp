@@ -3,8 +3,15 @@
 PlayerMenuBaseWidget::PlayerMenuBaseWidget(QWidget *parent)
     : QWidget{parent}
 {
+    // Main window for widget.
     mainLayout = new QVBoxLayout();
-    //setLayout(mainLayout); This is done in the above classes.
+
+    // Create the dropdown menus
+    dropDownMenu1 = new QMenu();
+    dropDownMenu2 = new QMenu();
+
+    // Initiate file manager.
+    r = new PlayerDataFileManager;
 
     // Title of page.
     titleLabel = new QLabel("Who is playing?", this);
@@ -46,21 +53,6 @@ PlayerMenuBaseWidget::PlayerMenuBaseWidget(QWidget *parent)
     connect(dropDownButton1, &QPushButton::clicked, this, &PlayerMenuBaseWidget::showDropDownMenu1);
     connect(dropDownButton2, &QPushButton::clicked, this, &PlayerMenuBaseWidget::showDropDownMenu2);
 
-    // Create the dropdown menu
-    dropDownMenu1 = new QMenu();
-    dropDownMenu2 = new QMenu();
-
-    // Initiate file manager.
-    r = new PlayerNameFileManager;
-
-    /*
-    QStringList computers = {"Easy Computer"};
-    for (const QString &name : computers) {
-        QAction *action2 = dropDownMenu2->addAction(name);
-        connect(action2, &QAction::triggered, this, [this, name]() { player2Input->setText(name); });
-    }
-    */
-
     gridLayout->addWidget(dropDownButton1, 1, 0, Qt::AlignRight);
     gridLayout->addWidget(dropDownButton2, 1, 1, Qt::AlignRight);
     gridLayout->setContentsMargins(0, 0, 0, 0); // I don't know what this one does.
@@ -91,6 +83,19 @@ PlayerMenuBaseWidget::PlayerMenuBaseWidget(QWidget *parent)
             &PlayerMenuBaseWidget::returnToMenuClicked);
 }
 
+void PlayerMenuBaseWidget::sendPlayerNames()
+{
+    QString player1_name = player1Input->text();
+    player1Input->clear();
+    QString player2_name = player2Input->text();
+    player2Input->clear();
+
+    QVector<QString> names = {player1_name};
+    r->addNewPlayersToFile(names);
+
+    emit setPlayerNames(player1_name, player2_name);
+}
+
 void PlayerMenuBaseWidget::startGameButtonClicked()
 {
     sendPlayerNames();
@@ -102,23 +107,10 @@ void PlayerMenuBaseWidget::returnToMenuClicked()
     emit returnToMenu();
 }
 
-void PlayerMenuBaseWidget::sendPlayerNames()
-{
-    QString player1_name = player1Input->text();
-    player1Input->clear();
-    QString player2_name = player2Input->text();
-    player2Input->clear();
-
-    QVector<QString> names = {player1_name, player2_name};
-    r->saveNamesToFile(names);
-
-    emit setPlayerNames(player1_name, player2_name);
-}
-
 void PlayerMenuBaseWidget::showDropDownMenu1()
 {
     dropDownMenu1->clear();
-    QVector<QString> names = r->loadNamesFromFile();
+    QVector<QString> names = r->loadPlayerNamesFromFile();
     for (const QString &name : names) {
         QAction *action1 = dropDownMenu1->addAction(name);
         connect(action1, &QAction::triggered, this, [this, name]() { player1Input->setText(name); });

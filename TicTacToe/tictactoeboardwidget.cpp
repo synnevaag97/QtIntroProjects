@@ -21,7 +21,7 @@ TicTacToeBoardWidget::TicTacToeBoardWidget(QWidget *parent)
     mainLayout->addLayout(tictacLayout);
     setLayout(mainLayout);
 
-    // Create three x three buttons
+    // Create three X three buttons
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             Box *button = new Box(i, j);
@@ -30,7 +30,6 @@ TicTacToeBoardWidget::TicTacToeBoardWidget(QWidget *parent)
     }
 
     // Create a 3x3 grid for the game
-
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             int index = i * 3 + j;
@@ -39,7 +38,6 @@ TicTacToeBoardWidget::TicTacToeBoardWidget(QWidget *parent)
     }
 
     // Connect buttons to handle when clicked.
-
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             int index = i * 3 + j;
@@ -84,11 +82,6 @@ void TicTacToeBoardWidget::resetBoard()
 
 void TicTacToeBoardWidget::computerMove(int move)
 {
-    //qDebug("Computer to move %s", boxes[move]->isEnabled() ? "true" : "false");
     boxes[move]->animateClick();
     lastButtonClicked = boxes[move];
-    //emit buttonPressed(boxes[move]);
-
-    /* When using click() i cannot get the button pressed with sender(). Therefore i need to provide additional info. 
-     * */
 }

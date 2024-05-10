@@ -9,8 +9,8 @@
 #include <QPushButton>
 #include <QWidget>
 
+#include "playerdatafilemanager.h"
 #include "playermenubasewidget.h"
-#include "playernamefilemanager.h"
 
 /*
  * Class for 1 or 2 players to register their names. 
@@ -25,8 +25,11 @@ class MultiPlayerMenuWidget : public PlayerMenuBaseWidget
 public:
     explicit MultiPlayerMenuWidget(PlayerMenuBaseWidget *parent = nullptr);
 
+    void sendPlayerNames() override;
+
 private slots:
     void showDropDownMenu2() override;
+
     /*
     QLabel *titleLabel;
     QLabel *player1Label;

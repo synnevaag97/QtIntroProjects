@@ -13,6 +13,7 @@
 #include "box.h"
 #include "easycomputer.h"
 #include "gamestate.h"
+#include "playerdatafilemanager.h"
 
 enum GameMode { Singleplayer = 0, Multiplayer = 1 };
 
@@ -23,6 +24,7 @@ public:
     GameState state;
     GameMode gameMode;
     EasyComputer computer;
+    PlayerDataFileManager *r;
 
     GameLogic();
     void nextTurn();

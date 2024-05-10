@@ -142,3 +142,13 @@ QString GameState::getCurrentPlayerMark()
 {
     return getPlayerMark(currentPlayer);
 }
+
+QString GameState::getOtherPlayerName()
+{
+    if (currentPlayer == 1) {
+        return getPlayerName(2);
+    } else if (currentPlayer == 2) {
+        return getPlayerName(1);
+    }
+    return "";
+}

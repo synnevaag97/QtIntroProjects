@@ -9,7 +9,7 @@
 #include <QPushButton>
 #include <QWidget>
 
-#include "playernamefilemanager.h"
+#include "playerdatafilemanager.h"
 
 class PlayerMenuBaseWidget : public QWidget
 {
@@ -35,10 +35,9 @@ protected:
     QPushButton *startGameButton;
     QPushButton *returnToMenuButton;
 
-    PlayerNameFileManager *r;
+    PlayerDataFileManager *r;
 
-private:
-    void sendPlayerNames();
+    virtual void sendPlayerNames();
 
 signals:
     void startGame();

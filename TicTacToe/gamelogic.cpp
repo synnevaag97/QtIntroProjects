@@ -1,6 +1,9 @@
 #include "gamelogic.h"
 
-GameLogic::GameLogic() {}
+GameLogic::GameLogic()
+{
+    r = new PlayerDataFileManager;
+}
 
 void GameLogic::resetGame()
 {
@@ -48,7 +51,9 @@ void GameLogic::buttonPressed(Box *box)
                                  QObject::tr("Game over!"),
                                  QObject::tr("Winner winner! Player: %1 Won")
                                      .arg(state.getCurrentPlayerName()));
-
+        // Update winner and loser data.
+        r->updatePlayerDataInFile(state.getCurrentPlayerName(), {1, 1, 0, 0});
+        r->updatePlayerDataInFile(state.getOtherPlayerName(), {1, 0, 1, 0});
         resetGame();
         return;
     }
@@ -56,6 +61,9 @@ void GameLogic::buttonPressed(Box *box)
     nextTurn();
     if (state.checkTie()) {
         QMessageBox::information(nullptr, QObject::tr("Game over!"), QObject::tr("It's a tie!"));
+
+        r->updatePlayerDataInFile(state.getCurrentPlayerName(), {1, 0, 0, 1});
+        r->updatePlayerDataInFile(state.getOtherPlayerName(), {1, 0, 0, 1});
         resetGame();
         return;
     }

@@ -16,7 +16,7 @@ void MultiPlayerMenuWidget::showDropDownMenu2()
 {
     // Add some example names to the dropdown menu
     dropDownMenu2->clear();
-    QVector<QString> names = r->loadNamesFromFile();
+    QVector<QString> names = r->loadPlayerNamesFromFile();
     for (const QString &name : names) {
         QAction *action2 = dropDownMenu2->addAction(name);
         connect(action2, &QAction::triggered, this, [this, name]() { player2Input->setText(name); });
@@ -25,4 +25,17 @@ void MultiPlayerMenuWidget::showDropDownMenu2()
     // Show the dropdown menu below the dropdown button
     dropDownMenu2->exec(dropDownButton2->mapToGlobal(
         QPoint(-(dropDownButton1->width() * 5), dropDownButton2->height())));
+}
+
+void MultiPlayerMenuWidget::sendPlayerNames()
+{
+    QString player1_name = player1Input->text();
+    player1Input->clear();
+    QString player2_name = player2Input->text();
+    player2Input->clear();
+
+    QVector<QString> names = {player1_name, player2_name};
+    r->addNewPlayersToFile(names);
+
+    emit setPlayerNames(player1_name, player2_name);
 }

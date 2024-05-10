@@ -16,18 +16,20 @@ public:
 
     QPushButton *singleplayerButton; // Start button in start menu.
     QPushButton *multiplayerButton;
-    //QPushButton *settings_button;
+    QPushButton *scoreboardButton;
     QPushButton *quitButton;
 
     QBoxLayout *menuLayout;
 
     void singlePlayerButtonClicked();
     void multiPlayerButtonClicked();
+    void scoreboardButtonClicked();
     void quitButtonClicked();
 
 signals:
     void singlePlayerSeleced();
     void multiPlayerSeleced();
+    void scoreBoardPressed();
     void quitButtonPressed();
 };
 

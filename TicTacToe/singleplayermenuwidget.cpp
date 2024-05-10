@@ -18,3 +18,16 @@ SinglePlayerMenuWidget::SinglePlayerMenuWidget(PlayerMenuBaseWidget *parent)
         connect(action2, &QAction::triggered, this, [this, name]() { player2Input->setText(name); });
     }
 }
+
+void SinglePlayerMenuWidget::sendPlayerNames()
+{
+    QString player1_name = player1Input->text();
+    player1Input->clear();
+    QString player2_name = player2Input->text();
+    player2Input->clear();
+
+    QVector<QString> names = {player1_name};
+    r->addNewPlayersToFile(names);
+
+    emit setPlayerNames(player1_name, player2_name);
+}
