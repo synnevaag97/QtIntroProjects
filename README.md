@@ -62,7 +62,7 @@ Creating a TicTacToe game.
 | 6 | AI computer | Play agains a AI computer. | | 
 | 7   | Menu with 1 and 2 player | Create a menu that can choose to play computer (1 player) or against friend (2 player) | ✅ |
 | 8 | Player registration | | ✅  |
-| 9 | Player scoreboard | |  |
+| 9 | Player scoreboard | Games played, games won, games lost, games tied. |  |
 | 10 | Adjustable boardsize | Let the user decide the size of the board. |  |
 
 
