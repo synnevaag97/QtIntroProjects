@@ -14,7 +14,7 @@
 #include "easycomputer.h"
 #include "gamestate.h"
 
-enum GameMode { Single = 0, Multi = 1 };
+enum GameMode { Singleplayer = 0, Multiplayer = 1 };
 
 class GameLogic : public QObject
 {
@@ -26,7 +26,7 @@ public:
 
     GameLogic();
     void nextTurn();
-    void restart();
+    void resetGame();
     bool isLegalMove(Box *box);
 
 signals:

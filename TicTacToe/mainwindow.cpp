@@ -28,14 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
                      this,
                      &MainWindow::showSinglePlayerRegistration);
     QObject::connect(v, &MainMenuWidget::quitButtonPressed, this, &MainWindow::quitApplication);
-    QObject::connect(ps,
-                     &SinglePlayerMenuWidget::startSinglePlayerGame,
-                     this,
-                     &MainWindow::showTicTacToeSingle);
-    QObject::connect(pm,
-                     &MultiPlayerMenuWidget::startMultiPlayerGame,
-                     this,
-                     &MainWindow::showTicTacToeMulti);
+    QObject::connect(ps, &SinglePlayerMenuWidget::startGame, this, &MainWindow::showTicTacToeSingle);
+    QObject::connect(pm, &MultiPlayerMenuWidget::startGame, this, &MainWindow::showTicTacToeMulti);
 
     QObject::connect(ps, &SinglePlayerMenuWidget::returnToMenu, this, &MainWindow::showMenu);
     QObject::connect(pm, &MultiPlayerMenuWidget::returnToMenu, this, &MainWindow::showMenu);
@@ -71,14 +65,14 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::showSinglePlayerRegistration()
 {
-    emit setGameMode(Single);
+    emit setGameMode(Singleplayer);
     v->hide();
     ps->show();
 }
 
 void MainWindow::showMultiPlayerRegistration()
 {
-    emit setGameMode(Multi);
+    emit setGameMode(Multiplayer);
     v->hide();
     pm->show();
 }

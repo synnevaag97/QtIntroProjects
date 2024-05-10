@@ -9,44 +9,14 @@
 #include <QPushButton>
 #include <QWidget>
 
+#include "playermenubasewidget.h"
 #include "playernamefilemanager.h"
 
-class SinglePlayerMenuWidget : public QWidget
+class SinglePlayerMenuWidget : public PlayerMenuBaseWidget
 {
     Q_OBJECT
 public:
-    explicit SinglePlayerMenuWidget(QWidget *parent = nullptr);
-
-    QLabel *titleLabel;
-    QLabel *player1Label;
-    QLabel *player2Label;
-
-    QLineEdit *player1;
-    QLineEdit *player2;
-
-    QPushButton *startGameButton;
-    QPushButton *returnToMenuButton;
-    QPushButton *dropDownButton1;
-    QPushButton *dropDownButton2;
-
-    QMenu *dropDownMenu1;
-    QMenu *dropDownMenu2;
-
-    PlayerNameFileManager *r;
-
-private:
-    void sendPlayerNames();
-
-private slots:
-    void startGameButtonClicked();
-    void returnToMenuClicked();
-    void showDropDownMenu1();
-    void showDropDownMenu2();
-
-signals:
-    void startSinglePlayerGame();
-    void returnToMenu();
-    void setPlayerNames(QString p1, QString p2);
+    explicit SinglePlayerMenuWidget(PlayerMenuBaseWidget *parent = nullptr);
 };
 
 #endif // SINGLEPLAYERMENUWIDGET_H

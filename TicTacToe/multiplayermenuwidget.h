@@ -9,6 +9,7 @@
 #include <QPushButton>
 #include <QWidget>
 
+#include "playermenubasewidget.h"
 #include "playernamefilemanager.h"
 
 /*
@@ -18,12 +19,15 @@
  * Also GameLogic must get info if it is single or multi?
  * Question is if this info should come when the object are initiated or when we press a button?
  * */
-class MultiPlayerMenuWidget : public QWidget
+class MultiPlayerMenuWidget : public PlayerMenuBaseWidget
 {
     Q_OBJECT
 public:
-    explicit MultiPlayerMenuWidget(QWidget *parent = nullptr);
+    explicit MultiPlayerMenuWidget(PlayerMenuBaseWidget *parent = nullptr);
 
+private slots:
+    void showDropDownMenu2() override;
+    /*
     QLabel *titleLabel;
     QLabel *player1Label;
     QLabel *player2Label;
@@ -54,6 +58,7 @@ signals:
     void startMultiPlayerGame();
     void returnToMenu();
     void setPlayerNames(QString p1, QString p2);
+*/
 };
 
 #endif // MULTIPLAYERMENUWIDGET_H
