@@ -1,5 +1,5 @@
-#ifndef GAMEMENU_H
-#define GAMEMENU_H
+#ifndef MAINMENUWIDGET_H
+#define MAINMENUWIDGET_H
 
 #include <QBoxLayout>
 #include <QLabel>
@@ -8,11 +8,11 @@
 
 #include "box.h"
 
-class GameMenu : public QWidget
+class MainMenuWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit GameMenu(QWidget *parent = nullptr);
+    explicit MainMenuWidget(QWidget *parent = nullptr);
 
     QPushButton *singleplayerButton; // Start button in start menu.
     QPushButton *multiplayerButton;
@@ -31,4 +31,4 @@ signals:
     void quitButtonPressed();
 };
 
-#endif // GAMEMENU_H
+#endif // MAINMENUWIDGET_H

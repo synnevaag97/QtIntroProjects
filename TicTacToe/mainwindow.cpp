@@ -12,53 +12,53 @@ MainWindow::MainWindow(QWidget *parent)
     centralWidget->setLayout(layout);
 
     // Initiate application modules.
-    w = new TicTacToeBoard;
-    v = new GameMenu;
+    w = new TicTacToeBoardWidget;
+    v = new MainMenuWidget;
     g = new GameLogic;
-    pm = new MultiPlayerRegistration;
-    ps = new SinglePlayerRegistration;
+    pm = new MultiPlayerMenuWidget;
+    ps = new SinglePlayerMenuWidget;
 
     // Callbacks for menu buttons.
     QObject::connect(v,
-                     &GameMenu::multiPlayerSeleced,
+                     &MainMenuWidget::multiPlayerSeleced,
                      this,
                      &MainWindow::showMultiPlayerRegistration);
     QObject::connect(v,
-                     &GameMenu::singlePlayerSeleced,
+                     &MainMenuWidget::singlePlayerSeleced,
                      this,
                      &MainWindow::showSinglePlayerRegistration);
-    QObject::connect(v, &GameMenu::quitButtonPressed, this, &MainWindow::quitApplication);
+    QObject::connect(v, &MainMenuWidget::quitButtonPressed, this, &MainWindow::quitApplication);
     QObject::connect(ps,
-                     &SinglePlayerRegistration::startSinglePlayerGame,
+                     &SinglePlayerMenuWidget::startSinglePlayerGame,
                      this,
                      &MainWindow::showTicTacToeSingle);
     QObject::connect(pm,
-                     &MultiPlayerRegistration::startMultiPlayerGame,
+                     &MultiPlayerMenuWidget::startMultiPlayerGame,
                      this,
                      &MainWindow::showTicTacToeMulti);
 
-    QObject::connect(ps, &SinglePlayerRegistration::returnToMenu, this, &MainWindow::showMenu);
-    QObject::connect(pm, &MultiPlayerRegistration::returnToMenu, this, &MainWindow::showMenu);
+    QObject::connect(ps, &SinglePlayerMenuWidget::returnToMenu, this, &MainWindow::showMenu);
+    QObject::connect(pm, &MultiPlayerMenuWidget::returnToMenu, this, &MainWindow::showMenu);
 
     // Callbacks for in-game communication between board and game logic.
-    QObject::connect(g, &GameLogic::updateTextLabel, w, &TicTacToeBoard::updateTextLabel);
-    QObject::connect(g, &GameLogic::updateBoxText, w, &TicTacToeBoard::updateBoxText);
-    QObject::connect(g, &GameLogic::gameCompleted, w, &TicTacToeBoard::resetBoard);
-    QObject::connect(w, &TicTacToeBoard::buttonPressed, g, &GameLogic::buttonPressed);
+    QObject::connect(g, &GameLogic::updateTextLabel, w, &TicTacToeBoardWidget::updateTextLabel);
+    QObject::connect(g, &GameLogic::updateBoxText, w, &TicTacToeBoardWidget::updateBoxText);
+    QObject::connect(g, &GameLogic::gameCompleted, w, &TicTacToeBoardWidget::resetBoard);
+    QObject::connect(w, &TicTacToeBoardWidget::buttonPressed, g, &GameLogic::buttonPressed);
 
     // Callback to go back to menu when game is finished.
     QObject::connect(g, &GameLogic::gameCompleted, this, &MainWindow::showMenu);
 
     // Callback for sending player name to gameLogic for registration page.
-    QObject::connect(pm, &MultiPlayerRegistration::setPlayerNames, g, &GameLogic::setPlayerNames);
-    QObject::connect(ps, &SinglePlayerRegistration::setPlayerNames, g, &GameLogic::setPlayerNames);
+    QObject::connect(pm, &MultiPlayerMenuWidget::setPlayerNames, g, &GameLogic::setPlayerNames);
+    QObject::connect(ps, &SinglePlayerMenuWidget::setPlayerNames, g, &GameLogic::setPlayerNames);
 
     // Callback for setting game mode; multi or single.
     QObject::connect(this, &MainWindow::setGameMode, g, &GameLogic::setGameMode);
     QObject::connect(this, &MainWindow::setGameMode, g, &GameLogic::setGameMode);
 
     // Computer move callback
-    QObject::connect(g, &GameLogic::computerMove, w, &TicTacToeBoard::computerMove);
+    QObject::connect(g, &GameLogic::computerMove, w, &TicTacToeBoardWidget::computerMove);
 
     layout->addWidget(w);
     layout->addWidget(v);

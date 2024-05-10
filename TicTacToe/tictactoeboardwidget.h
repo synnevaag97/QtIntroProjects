@@ -1,5 +1,5 @@
-#ifndef TICTACTOEBOARD_H
-#define TICTACTOEBOARD_H
+#ifndef TICTACTOEBOARDWIDGET_H
+#define TICTACTOEBOARDWIDGET_H
 
 #include <QMainWindow>
 #include <QGridLayout>
@@ -11,37 +11,22 @@
 #include <QtLogging>
 
 #include "box.h"
-#include "gamemenu.h"
+#include "mainmenuwidget.h"
 
 /*
  * The TicTacToe Board.
  *
 */
-class TicTacToeBoard : public  QWidget
+class TicTacToeBoardWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    TicTacToeBoard(QWidget *parent = nullptr);
+    TicTacToeBoardWidget(QWidget *parent = nullptr);
 
-    /*
-    int whos_turn = 1; // 1 for player 1, 2 for player 2.
-    int marked_tiles = 0;
-    */
     QGridLayout *tictacLayout;
     QLabel *current_player_label;
     QVector<Box *> boxes;
-    /*
-    Box *button11;
-    Box *button12;
-    Box *button13;
-    Box *button21;
-    Box *button22;
-    Box *button23;
-    Box *button31;
-    Box *button32;
-    Box *button33;
-    */
 
     Box *lastButtonClicked;
 
@@ -57,4 +42,4 @@ public slots:
     void resetBoard();
     void computerMove(int move);
 };
-#endif // TICTACTOEBOARD_H
+#endif // TICTACTOEBOARDWIDGET_H

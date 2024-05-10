@@ -14,9 +14,9 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
-        tictactoeboard.cpp
-        tictactoeboard.h
-        tictactoeboard.ui
+        tictactoeboardwidget.cpp
+        tictactoeboardwidget.h
+        tictactoeboardwidget.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -24,15 +24,15 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         box.h box.cpp
-        gamemenu.h gamemenu.cpp
+        mainmenuwidget.h mainmenuwidget.cpp
         mainwindow.h mainwindow.cpp
         gamelogic.h gamelogic.cpp
-        multiplayerregistration.h multiplayerregistration.cpp
+        multiplayermenuwidget.h multiplayermenuwidget.cpp
 
         gamestate.h gamestate.cpp
-        singleplayerregistration.h singleplayerregistration.cpp
+        singleplayermenuwidget.h singleplayermenuwidget.cpp
         easycomputer.h easycomputer.cpp
-        registration.h registration.cpp
+        playernamefilemanager.h playernamefilemanager.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET TicTacToe APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

@@ -1,15 +1,15 @@
-#ifndef REGISTRATION_H
-#define REGISTRATION_H
+#ifndef PLAYERNAMEFILEMANAGER_H
+#define PLAYERNAMEFILEMANAGER_H
 
 #include <QFile>
 #include <QTextStream>
 #include "QString"
 #include "QVector"
 
-class Registration
+class PlayerNameFileManager
 {
 public:
-    Registration();
+    PlayerNameFileManager();
     void saveNamesToFile(const QVector<QString> &names);
     QVector<QString> loadNamesFromFile();
     void clearNamesInFile();
@@ -20,4 +20,4 @@ private:
     const QString filename = "players.txt";
 };
 
-#endif // REGISTRATION_H
+#endif // PLAYERNAMEFILEMANAGER_H

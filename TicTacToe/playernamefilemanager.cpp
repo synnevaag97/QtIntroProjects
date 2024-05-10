@@ -1,8 +1,8 @@
-#include "registration.h"
+#include "playernamefilemanager.h"
 
-Registration::Registration() {}
+PlayerNameFileManager::PlayerNameFileManager() {}
 
-void Registration::saveNamesToFile(const QVector<QString> &newNames)
+void PlayerNameFileManager::saveNamesToFile(const QVector<QString> &newNames)
 {
     QVector<QString> existingNames = loadNamesFromFile();
     QFile file(filename);
@@ -17,7 +17,7 @@ void Registration::saveNamesToFile(const QVector<QString> &newNames)
     }
 }
 
-QVector<QString> Registration::loadNamesFromFile()
+QVector<QString> PlayerNameFileManager::loadNamesFromFile()
 {
     QVector<QString> names;
     QFile file(filename);
@@ -32,7 +32,7 @@ QVector<QString> Registration::loadNamesFromFile()
     return names;
 }
 
-void Registration::clearNamesInFile()
+void PlayerNameFileManager::clearNamesInFile()
 {
     // Clear/Remove all names in the file.
     QFile file(filename);
@@ -41,7 +41,7 @@ void Registration::clearNamesInFile()
     }
 }
 
-void Registration::deleteFile()
+void PlayerNameFileManager::deleteFile()
 {
     // Delete file
     QFile file(filename);

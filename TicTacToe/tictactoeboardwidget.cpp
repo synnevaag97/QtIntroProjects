@@ -1,10 +1,10 @@
-#include "tictactoeboard.h"
+#include "tictactoeboardwidget.h"
 
 /*
  * Constructor for TicTacTie class
  * It takes a QWidget pointer object called parent as parameter. WHich is the base class for all widgets.
 */
-TicTacToeBoard::TicTacToeBoard(QWidget *parent)
+TicTacToeBoardWidget::TicTacToeBoardWidget(QWidget *parent)
     : QWidget(parent)
 {
     // Create main layout and grid.
@@ -43,12 +43,12 @@ TicTacToeBoard::TicTacToeBoard(QWidget *parent)
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             int index = i * 3 + j;
-            connect(boxes[index], &Box::clicked, this, &TicTacToeBoard::boxPressedHandle);
+            connect(boxes[index], &Box::clicked, this, &TicTacToeBoardWidget::boxPressedHandle);
         }
     }
 }
 
-void TicTacToeBoard::boxPressedHandle(bool p)
+void TicTacToeBoardWidget::boxPressedHandle(bool p)
 {
     lastButtonClicked = qobject_cast<Box *>(sender());
     if (!lastButtonClicked)
@@ -58,19 +58,19 @@ void TicTacToeBoard::boxPressedHandle(bool p)
     emit buttonPressed(lastButtonClicked);
 }
 
-void TicTacToeBoard::updateTextLabel(const QString s)
+void TicTacToeBoardWidget::updateTextLabel(const QString s)
 {
     // Change so we get the name and update the text sprcifically here.
     current_player_label->setText(s);
 }
 
-void TicTacToeBoard::updateBoxText(const QString s)
+void TicTacToeBoardWidget::updateBoxText(const QString s)
 {
     // Update so we get the player sign and have the string here instead?
     lastButtonClicked->setText(s);
 }
 
-void TicTacToeBoard::resetBoard()
+void TicTacToeBoardWidget::resetBoard()
 {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -82,7 +82,7 @@ void TicTacToeBoard::resetBoard()
     current_player_label->setText(s);
 }
 
-void TicTacToeBoard::computerMove(int move)
+void TicTacToeBoardWidget::computerMove(int move)
 {
     //qDebug("Computer to move %s", boxes[move]->isEnabled() ? "true" : "false");
     boxes[move]->animateClick();

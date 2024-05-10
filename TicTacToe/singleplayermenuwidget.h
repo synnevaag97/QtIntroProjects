@@ -1,5 +1,5 @@
-#ifndef SINGLEPLAYERREGISTRATION_H
-#define SINGLEPLAYERREGISTRATION_H
+#ifndef SINGLEPLAYERMENUWIDGET_H
+#define SINGLEPLAYERMENUWIDGET_H
 
 #include <QBoxLayout>
 #include <QGridLayout>
@@ -9,13 +9,13 @@
 #include <QPushButton>
 #include <QWidget>
 
-#include "registration.h"
+#include "playernamefilemanager.h"
 
-class SinglePlayerRegistration : public QWidget
+class SinglePlayerMenuWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SinglePlayerRegistration(QWidget *parent = nullptr);
+    explicit SinglePlayerMenuWidget(QWidget *parent = nullptr);
 
     QLabel *titleLabel;
     QLabel *player1Label;
@@ -32,7 +32,7 @@ public:
     QMenu *dropDownMenu1;
     QMenu *dropDownMenu2;
 
-    Registration *r;
+    PlayerNameFileManager *r;
 
 private:
     void sendPlayerNames();
@@ -49,4 +49,4 @@ signals:
     void setPlayerNames(QString p1, QString p2);
 };
 
-#endif // SINGLEPLAYERREGISTRATION_H
+#endif // SINGLEPLAYERMENUWIDGET_H

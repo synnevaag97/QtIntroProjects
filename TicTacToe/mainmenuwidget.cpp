@@ -1,6 +1,6 @@
-#include "gamemenu.h"
+#include "mainmenuwidget.h"
 
-GameMenu::GameMenu(QWidget *parent)
+MainMenuWidget::MainMenuWidget(QWidget *parent)
     : QWidget{parent}
 {
     menuLayout = new QBoxLayout(QBoxLayout::Direction::TopToBottom);
@@ -28,28 +28,24 @@ GameMenu::GameMenu(QWidget *parent)
     menuLayout->addWidget(quitButton);
     setLayout(menuLayout);
 
-    connect(singleplayerButton, &Box::clicked, this, &GameMenu::singlePlayerButtonClicked);
-    connect(multiplayerButton, &Box::clicked, this, &GameMenu::multiPlayerButtonClicked);
-    connect(quitButton, &Box::clicked, this, &GameMenu::quitButtonClicked);
+    connect(singleplayerButton, &Box::clicked, this, &MainMenuWidget::singlePlayerButtonClicked);
+    connect(multiplayerButton, &Box::clicked, this, &MainMenuWidget::multiPlayerButtonClicked);
+    connect(quitButton, &Box::clicked, this, &MainMenuWidget::quitButtonClicked);
 }
 
-void GameMenu::singlePlayerButtonClicked()
+void MainMenuWidget::singlePlayerButtonClicked()
 {
     // Code for handling start button click...
 
     emit singlePlayerSeleced(); // Emit the signal when the start button is clicked
 }
 
-void GameMenu::multiPlayerButtonClicked()
+void MainMenuWidget::multiPlayerButtonClicked()
 {
-    // Code for handling start button click...
-
-    emit multiPlayerSeleced(); // Emit the signal when the start button is clicked
+    emit multiPlayerSeleced();
 }
 
-void GameMenu::quitButtonClicked()
+void MainMenuWidget::quitButtonClicked()
 {
-    // Code for handling quit button click...
-
-    emit quitButtonPressed(); // Emit the signal when the quit button is clicked
+    emit quitButtonPressed();
 }

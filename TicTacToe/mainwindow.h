@@ -4,10 +4,10 @@
 #include <QMainWindow>
 
 #include "gamelogic.h"
-#include "gamemenu.h"
-#include "multiplayerregistration.h"
-#include "singleplayerregistration.h"
-#include "tictactoeboard.h"
+#include "mainmenuwidget.h"
+#include "multiplayermenuwidget.h"
+#include "singleplayermenuwidget.h"
+#include "tictactoeboardwidget.h"
 
 class MainWindow : public QMainWindow
 {
@@ -15,11 +15,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 
-    TicTacToeBoard *w;
-    GameMenu *v;
+    TicTacToeBoardWidget *w;
+    MainMenuWidget *v;
     GameLogic *g;
-    MultiPlayerRegistration *pm;
-    SinglePlayerRegistration *ps;
+    MultiPlayerMenuWidget *pm;
+    SinglePlayerMenuWidget *ps;
     QVBoxLayout *layout;
     //QWidget *centralWidget;
 

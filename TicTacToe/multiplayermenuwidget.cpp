@@ -1,6 +1,6 @@
-#include "singleplayerregistration.h"
+#include "multiplayermenuwidget.h"
 
-SinglePlayerRegistration::SinglePlayerRegistration(QWidget *parent)
+MultiPlayerMenuWidget::MultiPlayerMenuWidget(QWidget *parent)
     : QWidget{parent}
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
@@ -24,7 +24,7 @@ SinglePlayerRegistration::SinglePlayerRegistration(QWidget *parent)
 
     player2Label = new QLabel();
     player2Label->setAlignment(Qt::AlignCenter);
-    player2Label->setText("Computer: ");
+    player2Label->setText("Player 2: ");
     gridLayout->addWidget(player2Label, 0, 1);
 
     // Show box to write their names in.
@@ -35,8 +35,7 @@ SinglePlayerRegistration::SinglePlayerRegistration(QWidget *parent)
 
     player2 = new QLineEdit();
     player2->setAlignment(Qt::AlignCenter);
-    player2->setPlaceholderText("Choose computer");
-    player2->setEnabled(false);
+    player2->setPlaceholderText("Enter your name");
     gridLayout->addWidget(player2, 1, 1);
 
     // Drop down menu
@@ -49,26 +48,14 @@ SinglePlayerRegistration::SinglePlayerRegistration(QWidget *parent)
     dropDownButton2->setFixedSize(20, 20);
 
     // Connect the button's clicked signal to show the dropdown menu
-    connect(dropDownButton1,
-            &QPushButton::clicked,
-            this,
-            &SinglePlayerRegistration::showDropDownMenu1);
-    connect(dropDownButton2,
-            &QPushButton::clicked,
-            this,
-            &SinglePlayerRegistration::showDropDownMenu2);
+    connect(dropDownButton1, &QPushButton::clicked, this, &MultiPlayerMenuWidget::showDropDownMenu1);
+    connect(dropDownButton2, &QPushButton::clicked, this, &MultiPlayerMenuWidget::showDropDownMenu2);
 
     // Create the dropdown menu
     dropDownMenu1 = new QMenu();
     dropDownMenu2 = new QMenu();
-    r = new Registration;
+    r = new PlayerNameFileManager;
     //r->clearNamesInFile();
-
-    QStringList computers = {"Easy Computer"};
-    for (const QString &name : computers) {
-        QAction *action2 = dropDownMenu2->addAction(name);
-        connect(action2, &QAction::triggered, this, [this, name]() { player2->setText(name); });
-    }
 
     gridLayout->addWidget(dropDownButton1, 1, 0, Qt::AlignRight);
     gridLayout->addWidget(dropDownButton2, 1, 1, Qt::AlignRight);
@@ -86,9 +73,9 @@ SinglePlayerRegistration::SinglePlayerRegistration(QWidget *parent)
     connect(startGameButton,
             &QPushButton::clicked,
             this,
-            &SinglePlayerRegistration::startGameButtonClicked);
+            &MultiPlayerMenuWidget::startGameButtonClicked);
 
-    // Continue to game button
+    // Back to menu button
     returnToMenuButton = new QPushButton();
     returnToMenuButton->setText("Back");
     returnToMenuButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -97,42 +84,41 @@ SinglePlayerRegistration::SinglePlayerRegistration(QWidget *parent)
     connect(returnToMenuButton,
             &QPushButton::clicked,
             this,
-            &SinglePlayerRegistration::returnToMenuClicked);
+            &MultiPlayerMenuWidget::returnToMenuClicked);
 }
 
-void SinglePlayerRegistration::startGameButtonClicked()
+void MultiPlayerMenuWidget::startGameButtonClicked()
 {
     // Code for handling button click...
     sendPlayerNames();
-    emit startSinglePlayerGame(); // Emit the signal when the button is clicked
+    emit startMultiPlayerGame(); // Emit the signal when the button is clicked
 
     // Should i send the input names through the emit?? We want the name in the gameLogic. And let's say that the gameLogic is the one that communicate with the scoreboard.
 }
 
-void SinglePlayerRegistration::returnToMenuClicked()
+void MultiPlayerMenuWidget::returnToMenuClicked()
 {
     emit returnToMenu();
 }
 
-void SinglePlayerRegistration::sendPlayerNames()
+void MultiPlayerMenuWidget::sendPlayerNames()
 {
     QString player1_name = player1->text();
     player1->clear();
     QString player2_name = player2->text();
     player2->clear();
 
-    QVector<QString> names = {player1_name};
+    QVector<QString> names = {player1_name, player2_name};
     r->saveNamesToFile(names);
 
     emit setPlayerNames(player1_name, player2_name);
 }
 
-void SinglePlayerRegistration::showDropDownMenu1()
+void MultiPlayerMenuWidget::showDropDownMenu1()
 {
     // Add some example names to the dropdown menu
     dropDownMenu1->clear();
     QVector<QString> names = r->loadNamesFromFile();
-    //QStringList names = {"Alice", "Bob", "Charlie", "David"};
     for (const QString &name : names) {
         QAction *action1 = dropDownMenu1->addAction(name);
         connect(action1, &QAction::triggered, this, [this, name]() { player1->setText(name); });
@@ -143,8 +129,16 @@ void SinglePlayerRegistration::showDropDownMenu1()
         QPoint(-(dropDownButton1->width() * 5), dropDownButton1->height())));
 }
 
-void SinglePlayerRegistration::showDropDownMenu2()
+void MultiPlayerMenuWidget::showDropDownMenu2()
 {
+    // Add some example names to the dropdown menu
+    dropDownMenu2->clear();
+    QVector<QString> names = r->loadNamesFromFile();
+    for (const QString &name : names) {
+        QAction *action2 = dropDownMenu2->addAction(name);
+        connect(action2, &QAction::triggered, this, [this, name]() { player2->setText(name); });
+    }
+
     // Show the dropdown menu below the dropdown button
     dropDownMenu2->exec(dropDownButton2->mapToGlobal(
         QPoint(-(dropDownButton1->width() * 5), dropDownButton2->height())));
