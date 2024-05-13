@@ -53,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Callback for setting game mode; multi or single.
     QObject::connect(this, &MainWindow::setGameMode, g, &GameLogic::setGameMode);
-    QObject::connect(this, &MainWindow::setGameMode, g, &GameLogic::setGameMode);
+    //QObject::connect(this, &MainWindow::setGameMode, g, &GameLogic::setGameMode);
 
     // Computer move callback
     QObject::connect(g, &GameLogic::computerMove, w, &TicTacToeBoardWidget::computerMove);

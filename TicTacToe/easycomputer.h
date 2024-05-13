@@ -1,14 +1,15 @@
 #ifndef EASYCOMPUTER_H
 #define EASYCOMPUTER_H
 
-#include <QRandomGenerator>
 #include <QVector>
 
-class EasyComputer
+#include "computerbase.h"
+
+class EasyComputer : public ComputerBase
 {
 public:
     EasyComputer();
-    int makeMove(QVector<int> legalMoves);
+    int makeMove(GameState *state) override;
 };
 
 #endif // EASYCOMPUTER_H

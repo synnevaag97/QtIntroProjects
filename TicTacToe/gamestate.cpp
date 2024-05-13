@@ -18,9 +18,17 @@ GameState::GameState()
     }
 }
 
-void GameState::updateGameState(Box *box)
+GameState::GameState(const GameState &other)
 {
-    gameState[std::get<0>(box->location)][std::get<1>(box->location)] = currentPlayer;
+    // Copy the member variables
+    this->gameState = other.getState();
+    this->currentPlayer = other.getCurrentPlayer(); // 1 for player 1, 2 for player 2.
+    this->playerNames = other.getPlayerNames();
+}
+
+void GameState::updateGameState(int row, int col)
+{
+    gameState[row][col] = currentPlayer;
 }
 
 bool GameState::checkTie()
@@ -151,4 +159,27 @@ QString GameState::getOtherPlayerName()
         return getPlayerName(1);
     }
     return "";
+}
+
+QVector<QVector<int>> GameState::getState() const
+{
+    return gameState;
+}
+int GameState::getCurrentPlayer() const
+{
+    return currentPlayer;
+}
+QVector<QString> GameState::getPlayerNames() const
+{
+    return playerNames;
+}
+
+void GameState::setCurrentPlayer(int player)
+{
+    currentPlayer = player;
+}
+
+void GameState::clearState(int row, int col)
+{
+    gameState[row][col] = -1;
 }

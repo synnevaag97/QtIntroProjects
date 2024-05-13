@@ -12,7 +12,10 @@ SinglePlayerMenuWidget::SinglePlayerMenuWidget(PlayerMenuBaseWidget *parent)
     player2Input->setPlaceholderText("Choose computer");
     player2Input->setEnabled(false);
 
-    QStringList computers = {"Easy Computer"};
+    QStringList computers = {"Easy Computer",
+                             "Smart Computer",
+                             "Smarter Computer",
+                             "Invinci Computer"};
     for (const QString &name : computers) {
         QAction *action2 = dropDownMenu2->addAction(name);
         connect(action2, &QAction::triggered, this, [this, name]() { player2Input->setText(name); });

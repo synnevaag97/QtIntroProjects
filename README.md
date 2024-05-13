@@ -59,14 +59,14 @@ Inspiration for TicTacToe bots: https://thesharperdev.com/coding-the-perfect-tic
 | 1 | Simple functioning version | Simple tictactoe that declares a winner with 3 in a row.  | ✅ |
 | 2 | Pop up window| Create a pop up window declaring winner and a tie.| ✅ |
 | 3   | Menu| Create a menu that start the game and closes the game.  | ✅ |
-| 4   | Play computer | Play against a computer that choose random tiles. | ✅ |
-| 5 | One layer computer | Picks if there is a one winner move or else random.  | | 
-| 6 | Two layer computer | Picks if there is a one winner move, blocks a winning move for the opponent otherwise random.  | | 
-| 7 | AI computer | Play agains a AI computer. | | 
+| 4   | Play computer | Play against a computer that choose random tiles. | ✅|
+| 5 | One layer computer | Picks if there is a one winner move or else random.  | ✅ | 
+| 6 | Two layer computer | Picks if there is a one winner move, blocks a winning move for the opponent otherwise random.  |✅ | 
+| 7 | AI computer | Play against a optimal computer. You never win. | ✅ | 
 | 8   | Menu with 1 and 2 player | Create a menu that can choose to play computer (1 player) or against friend (2 player) | ✅ |
 | 9 | Player registration | | ✅  |
 | 10 | Player scoreboard | Games played, games won, games lost, games tied. | ✅ |
 | 11 | Adjustable boardsize | Let the user decide the size of the board. |  |
 
 
-
+ 

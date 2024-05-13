@@ -3,6 +3,10 @@
 GameLogic::GameLogic()
 {
     r = new PlayerDataFileManager;
+    easyComputer = new EasyComputer();
+    oneLevelComputer = new OneLevelComputer();
+    twoLayerComputer = new TwoLayerComputer();
+    invinciComputer = new InvinciComputer();
 }
 
 void GameLogic::resetGame()
@@ -43,7 +47,7 @@ void GameLogic::buttonPressed(Box *box)
     emit updateBoxText(updatedBoxLabel);
 
     // Update game state.
-    state.updateGameState(box);
+    state.updateGameState(std::get<0>(box->location), std::get<1>(box->location));
 
     // Check if we have a winner
     if (state.checkWinner()) {
@@ -70,8 +74,7 @@ void GameLogic::buttonPressed(Box *box)
 
     if ((gameMode == Singleplayer) && (state.getCurrentPlayerMark() == "O")) {
         qDebug("Computer to play.");
-        QVector<int> legalMoves = state.getLegalMoves();
-        int move = computer.makeMove(legalMoves);
+        int move = computer->makeMove(&state);
         if (move == -1) {
             qWarning("Computer made an invalid move!");
             return;
@@ -83,6 +86,11 @@ void GameLogic::buttonPressed(Box *box)
 void GameLogic::setPlayerNames(QString p1, QString p2)
 {
     state.setPlayerNames(p1, p2);
+
+    if (gameMode == Singleplayer) {
+        setComputer(p2);
+    }
+
     QString s = QString("Player %1 (X) starts the game.").arg(state.getPlayerName(1));
     emit updateTextLabel(s);
 }
@@ -94,4 +102,22 @@ void GameLogic::setGameMode(GameMode mode)
         return;
     }
     gameMode = mode;
+    if (gameMode == Singleplayer) {
+        //computer = computerPtr;
+    }
+}
+
+void GameLogic::setComputer(QString computerName)
+{
+    if (computerName == "Easy Computer") {
+        computer = easyComputer;
+    } else if (computerName == "Smart Computer") {
+        computer = oneLevelComputer;
+    } else if (computerName == "Smarter Computer") {
+        computer = twoLayerComputer;
+        qInfo("Smarter computer choosen.");
+    } else if (computerName == "Invinci Computer") {
+        computer = invinciComputer;
+        qInfo("Invinci computer choosen.");
+    }
 }

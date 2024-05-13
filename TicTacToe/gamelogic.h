@@ -13,23 +13,33 @@
 #include "box.h"
 #include "easycomputer.h"
 #include "gamestate.h"
+#include "invincicomputer.h"
+#include "onelevelcomputer.h"
 #include "playerdatafilemanager.h"
+#include "twolayercomputer.h"
 
 enum GameMode { Singleplayer = 0, Multiplayer = 1 };
 
 class GameLogic : public QObject
 {
     Q_OBJECT
-public:
+
+private:
+    ComputerBase *computer;
     GameState state;
     GameMode gameMode;
-    EasyComputer computer;
+    EasyComputer *easyComputer;
+    OneLevelComputer *oneLevelComputer;
+    TwoLayerComputer *twoLayerComputer;
     PlayerDataFileManager *r;
+    InvinciComputer *invinciComputer;
 
+public:
     GameLogic();
     void nextTurn();
     void resetGame();
     bool isLegalMove(Box *box);
+    void setComputer(QString computerName);
 
 signals:
     void updateTextLabel(const QString s);

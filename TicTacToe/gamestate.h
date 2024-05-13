@@ -19,22 +19,29 @@ private:
 
 public:
     GameState();
+    GameState(const GameState &other);
 
     bool checkWinner();
     bool checkTie();
-    void updateGameState(Box *box);
+    void updateGameState(int row, int col);
     void setPlayerNames(QString p1, QString p2);
     void reset();
     void updatePlayerTurn();
     bool isBoxMarked(Box *box);
-    QVector<int> getLegalMoves();
+    void setCurrentPlayer(int player);
+    void clearState(int row, int col);
 
+    QVector<int> getLegalMoves();
     int getMarkedBoxes();
     QString getPlayerName(int player);
     QString getPlayerMark(int player);
     QString getCurrentPlayerName();
     QString getCurrentPlayerMark();
     QString getOtherPlayerName();
+
+    QVector<QVector<int>> getState() const;
+    int getCurrentPlayer() const;
+    QVector<QString> getPlayerNames() const;
 };
 
 #endif // GAMESTATE_H
