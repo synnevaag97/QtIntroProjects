@@ -4,15 +4,16 @@ run-name: Build run ${{ github.run_id }} by ${{ github.actor }}
 
 on: push
 
-defaults:
-  run:
-    working-directory: ./TicTacToe
-
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./TicTacToe
+
+    steps:
       #- name: Checkout repository
       #uses: actions/checkout@v2
 
@@ -21,7 +22,7 @@ jobs:
       with:
         cmake-version: '3.21'  # Adjust the CMake version as needed
 
-        - name: Set up Qt
+      - name: Set up Qt
       uses: JurajFialaOfficial/Qt-Setup@v2
       with:
         qtVersion: '6.6.0'  # Adjust the Qt version as needed
@@ -33,4 +34,4 @@ jobs:
       run: cmake --build build --config Release
 
       - name: Run tests
-      run: cd build && tests -C Release --output-on-failure
+      run: cd build && ctest -C Release --output-on-failure
