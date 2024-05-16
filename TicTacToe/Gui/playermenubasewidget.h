@@ -9,7 +9,7 @@
 #include <QPushButton>
 #include <QWidget>
 
-#include "playerdatafilemanager.h"
+#include "../Functionality/playerdatafilemanager.h"
 
 class PlayerMenuBaseWidget : public QWidget
 {

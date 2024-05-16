@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "gamelogic.h"
+#include "../Functionality/gamelogic.h"
 #include "mainmenuwidget.h"
 #include "multiplayermenuwidget.h"
 #include "scoreboardwidget.h"

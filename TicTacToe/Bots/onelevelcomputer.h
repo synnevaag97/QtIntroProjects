@@ -3,8 +3,8 @@
 
 #include <QVector>
 
+#include "../Functionality/gamestate.h"
 #include "computerbase.h"
-#include "gamestate.h"
 
 class OneLevelComputer : public ComputerBase
 {

@@ -3,7 +3,7 @@
 
 #include <QRandomGenerator>
 
-#include "gamestate.h"
+#include "../Functionality/gamestate.h"
 
 class ComputerBase
 {

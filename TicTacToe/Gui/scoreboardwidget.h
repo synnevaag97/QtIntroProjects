@@ -10,7 +10,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
-#include "playerdatafilemanager.h"
+#include "../Functionality/playerdatafilemanager.h"
 
 class ScoreboardWidget : public QWidget
 {

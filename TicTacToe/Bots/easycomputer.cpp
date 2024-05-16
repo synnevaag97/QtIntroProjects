@@ -4,7 +4,7 @@ EasyComputer::EasyComputer() {}
 
 int EasyComputer::makeMove(GameState *state)
 {
-    QVector<int> legalMoves = state->getLegalMoves();
+    QVector<int> legalMoves = state->getUnmarkedBoxes();
     // Ensure there are legal moves available
     if (legalMoves.isEmpty()) {
         qWarning("No legal moves available.");

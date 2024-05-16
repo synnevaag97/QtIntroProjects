@@ -4,10 +4,10 @@ OneLevelComputer::OneLevelComputer() {}
 
 int OneLevelComputer::makeMove(GameState *state)
 {
-    QVector<QVector<int>> gameState = state->getState();
+    //QVector<QVector<int>> boardState = state->getBoardState();
 
     // Ensure there are legal moves available
-    QVector<int> legalMoves = state->getLegalMoves();
+    QVector<int> legalMoves = state->getUnmarkedBoxes();
     if (legalMoves.isEmpty()) {
         qWarning("No legal moves available.");
         return -1; // Or any other appropriate error code
@@ -22,7 +22,7 @@ int OneLevelComputer::makeMove(GameState *state)
         // SImulate making a move
         int row = move / 3; // Calculate row from index
         int col = move % 3;
-        newState->updateGameState(row, col);
+        newState->setBoxState(row, col);
 
         // Check if this move was a winning move
         if (newState->checkWinner()) {

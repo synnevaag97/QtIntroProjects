@@ -4,10 +4,10 @@ TwoLayerComputer::TwoLayerComputer() {}
 
 int TwoLayerComputer::makeMove(GameState *state)
 {
-    QVector<QVector<int>> gameState = state->getState();
+    //QVector<QVector<int>> gameState = state->getState();
 
     // Ensure there are legal moves available
-    QVector<int> legalMoves = state->getLegalMoves();
+    QVector<int> legalMoves = state->getUnmarkedBoxes();
     if (legalMoves.isEmpty()) {
         qWarning("No legal moves available.");
         return -1; // Or any other appropriate error code
@@ -23,7 +23,7 @@ int TwoLayerComputer::makeMove(GameState *state)
         // Simulate making a move
         int row = move / 3; // Calculate row from index
         int col = move % 3;
-        newState->updateGameState(row, col);
+        newState->setBoxState(row, col);
 
         // Check if this move was a winning move for the bot
         if (newState->checkWinner()) {
@@ -31,8 +31,8 @@ int TwoLayerComputer::makeMove(GameState *state)
         }
 
         // Check if this move was a winning move for the opponent
-        newState->setCurrentPlayer(1);
-        newState->updateGameState(row, col);
+        newState->switchActivePlayer();
+        newState->setBoxState(row, col);
         if (newState->checkWinner()) {
             winningMoveOpponent = move;
         }

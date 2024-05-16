@@ -1,3 +1,4 @@
+
 #include "box.h"
 
 Box::Box(int row, int col, QPushButton *parent)

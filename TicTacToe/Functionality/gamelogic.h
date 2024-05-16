@@ -10,13 +10,13 @@
 
 #include <QtLogging>
 
-#include "box.h"
-#include "easycomputer.h"
+#include "../Bots/easycomputer.h"
+#include "../Bots/invincicomputer.h"
+#include "../Bots/onelevelcomputer.h"
+#include "../Bots/twolayercomputer.h"
+#include "../Gui/box.h"
 #include "gamestate.h"
-#include "invincicomputer.h"
-#include "onelevelcomputer.h"
 #include "playerdatafilemanager.h"
-#include "twolayercomputer.h"
 
 enum GameMode { Singleplayer = 0, Multiplayer = 1 };
 
@@ -34,12 +34,15 @@ private:
     PlayerDataFileManager *r;
     InvinciComputer *invinciComputer;
 
+    void updatePlayerTurn(); // These two should be 1?
+
 public:
     GameLogic();
     void nextTurn();
     void resetGame();
     bool isLegalMove(Box *box);
     void setComputer(QString computerName);
+    QVector<int> getLegalMoves();
 
 signals:
     void updateTextLabel(const QString s);
