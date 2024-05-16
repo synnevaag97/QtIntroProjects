@@ -4,11 +4,15 @@ run-name: Build run ${{ github.run_id }} by ${{ github.actor }}
 
 on: push
 
+defaults:
+  run:
+    working-directory: ./TicTacToe
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
       - name: Checkout repository
       uses: actions/checkout@v2
 
