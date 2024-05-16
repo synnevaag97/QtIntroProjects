@@ -13,8 +13,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-      - name: Checkout repository
-      uses: actions/checkout@v2
+      #- name: Checkout repository
+      #uses: actions/checkout@v2
 
       - name: Set up CMake
       uses: actions/setup-cmake@v2
