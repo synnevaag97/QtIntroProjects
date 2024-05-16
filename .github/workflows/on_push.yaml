@@ -1,0 +1,32 @@
+name: Build and test on push
+
+run-name: Build run ${{ github.run_id }} by ${{ github.actor }}
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+      uses: actions/checkout@v2
+
+      - name: Set up CMake
+      uses: actions/setup-cmake@v2
+      with:
+        cmake-version: '3.21'  # Adjust the CMake version as needed
+
+        - name: Set up Qt
+      uses: JurajFialaOfficial/Qt-Setup@v2
+      with:
+        qtVersion: '6.6.0'  # Adjust the Qt version as needed
+
+     - name: Configure project
+      run: cmake -B build -S .
+
+      - name: Build project
+      run: cmake --build build --config Release
+
+      - name: Run tests
+      run: cd build && tests -C Release --output-on-failure
