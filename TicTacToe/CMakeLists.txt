@@ -20,33 +20,33 @@ set(PROJECT_SOURCES
         tictactoeboardwidget.ui
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(TicTacToe
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-        Gui/box.h Gui/box.cpp
-        Gui/mainmenuwidget.h Gui/mainmenuwidget.cpp
-        Gui/mainwindow.h Gui/mainwindow.cpp
-        Gui/singleplayermenuwidget.h Gui/singleplayermenuwidget.cpp
-        Gui/multiplayermenuwidget.h Gui/multiplayermenuwidget.cpp
-        Gui/playermenubasewidget.h Gui/playermenubasewidget.cpp
-        Gui/scoreboardwidget.h Gui/scoreboardwidget.cpp
+#if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+qt_add_executable(TicTacToe
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
+    Gui/box.h Gui/box.cpp
+    Gui/mainmenuwidget.h Gui/mainmenuwidget.cpp
+    Gui/mainwindow.h Gui/mainwindow.cpp
+    Gui/singleplayermenuwidget.h Gui/singleplayermenuwidget.cpp
+    Gui/multiplayermenuwidget.h Gui/multiplayermenuwidget.cpp
+    Gui/playermenubasewidget.h Gui/playermenubasewidget.cpp
+    Gui/scoreboardwidget.h Gui/scoreboardwidget.cpp
 
-        Functionality/gamelogic.h Functionality/gamelogic.cpp
-        Functionality/gamestate.h Functionality/gamestate.cpp
-        Functionality/playerdatafilemanager.h Functionality/playerdatafilemanager.cpp
-        Functionality/player.h Functionality/player.cpp
+    Functionality/gamelogic.h Functionality/gamelogic.cpp
+    Functionality/gamestate.h Functionality/gamestate.cpp
+    Functionality/playerdatafilemanager.h Functionality/playerdatafilemanager.cpp
+    Functionality/player.h Functionality/player.cpp
 
-        Bots/easycomputer.h Bots/easycomputer.cpp
-        Bots/onelevelcomputer.h Bots/onelevelcomputer.cpp
-        Bots/computerbase.h Bots/computerbase.cpp
-        Bots/twolayercomputer.h Bots/twolayercomputer.cpp
-        Bots/invincicomputer.h Bots/invincicomputer.cpp
-
-
+    Bots/easycomputer.h Bots/easycomputer.cpp
+    Bots/onelevelcomputer.h Bots/onelevelcomputer.cpp
+    Bots/computerbase.h Bots/computerbase.cpp
+    Bots/twolayercomputer.h Bots/twolayercomputer.cpp
+    Bots/invincicomputer.h Bots/invincicomputer.cpp
 
 
-    )
+
+
+)
 
 set(TEST_SOURCES
     Tests/tst_gamestate.h Tests/tst_gamestate.cpp
@@ -64,19 +64,20 @@ set(TEST_SOURCES
 #    set_property(TARGET TicTacToe APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
-else()
-    if(ANDROID)
-        add_library(TicTacToe SHARED
-            ${PROJECT_SOURCES}
-        )
+
+#else()
+ #   if(ANDROID)
+  #      add_library(TicTacToe SHARED
+   #         ${PROJECT_SOURCES}
+    #    )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(TicTacToe
-            ${PROJECT_SOURCES}
-        )
-    endif()
-endif()
+    #else()
+     #   add_executable(TicTacToe
+      #      ${PROJECT_SOURCES}
+      #  )
+    #endif()
+#endif()
 
 # Set up the executable for your tests
 add_executable(tests ${TEST_SOURCES})

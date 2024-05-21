@@ -33,7 +33,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
-          qt-version: '6.2.0'  # Adjust the Qt version as needed
+          qt-version: '6.6.0'  # Adjust the Qt version as needed
 
       #- name: Verify Qt installation
       #  run: qtchooser -print-env
