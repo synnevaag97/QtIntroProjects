@@ -25,8 +25,8 @@ jobs:
 
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v2
-        with:
-          cmake-version: '3.5'  # Adjust the CMake version as needed
+        #with:
+        #  cmake-version: '3.5'  # Adjust the CMake version as needed
 
       - name: Verify CMake installation
         run: cmake --version
