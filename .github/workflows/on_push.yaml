@@ -5,6 +5,13 @@ run-name: Build run ${{ github.run_id }} by ${{ github.actor }}
 on: push
 
 jobs:
+  print-env:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Print Environment Variables
+        run: |
+          env
   build:
     runs-on: ubuntu-latest
     steps:
