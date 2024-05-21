@@ -5,13 +5,7 @@ run-name: Build run ${{ github.run_id }} by ${{ github.actor }}
 on: push
 
 jobs:
-  print-env:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Print Environment Variables
-        run: |
-          env
+  
   build:
     runs-on: ubuntu-latest
     steps:
@@ -45,14 +39,22 @@ jobs:
       #- name: Verify Qt installation
       #  run: qtchooser -print-env
 
-      - name: Configure TicTacToe project
-        run: cmake -B build -S ./TicTacToe
+      #- name: Configure TicTacToe project
+      #  run: cmake -B build -S ./TicTacToe
 
-      - name: Build project
-        run: cmake --build build --config Release
+      #- name: Build project
+      #  run: cmake --build build --config Release
 
       # - name: Run tests
       #   run: cd build && ctest -C Release --output-on-failure
 
       # - name: Run test executable
       #   run: ./build/tests
+
+  print-env:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Print Environment Variables
+        run: |
+          env
