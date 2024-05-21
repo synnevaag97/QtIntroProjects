@@ -34,7 +34,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
-          qt-version: '6.6.0'  # Adjust the Qt version as needed
+          version: '6.6.0'  # Adjust the Qt version as needed
 
       - name: Print Environment Variables
         run: |
