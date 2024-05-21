@@ -2,7 +2,11 @@ name: Build and test on push
 
 run-name: Build run ${{ github.run_id }} by ${{ github.actor }}
 
-on: push
+on: 
+  push:
+    paths:
+      - TicTacToe/**
+
 
 jobs:
   build:
@@ -10,8 +14,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          path: TicTacToe/
 
       - name: Set up CMake
         uses: lukka/get-cmake@v2
