@@ -39,7 +39,7 @@ jobs:
       #  run: qtchooser -print-env
 
       - name: Configure TicTacToe project
-        run: cmake -B build -S ./QtIntroProjects/TicTacToe
+        run: cmake -B build -S ./TicTacToe
 
       - name: Build project
         run: cmake --build build --config Release
