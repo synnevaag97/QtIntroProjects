@@ -19,10 +19,16 @@ jobs:
         with:
           cmake-version: '3.5'  # Adjust the CMake version as needed
 
+      - name: Verify CMake installation
+        run: cmake --version
+
       - name: Set up Qt
         uses: jurplel/install-qt-action@v3
         with:
-          qtVersion: '6.6.0'  # Adjust the Qt version as needed
+          qt-version: '6.6.0'  # Adjust the Qt version as needed
+
+      - name: Verify Qt installation
+        run: qtchooser -print-env
 
       - name: Configure project
         run: cmake -B build -S .
