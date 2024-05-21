@@ -11,9 +11,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install required dependencies
-        run: sudo apt-get update && sudo apt-get install -y libidn11
-        
+      #- name: Install required dependencies
+      #  run: sudo apt-get update && sudo apt-get install -y libidn11
+
+      # Add steps to download and install libidn11 package
+      - name: Download libidn11 package
+        run: wget http://mirrors.kernel.org/ubuntu/pool/main/libi/libidn/libidn11_1.33-2.2ubuntu2_amd64.deb -O libidn11.deb 
+
+      - name: Install libidn11 package
+        run: sudo dpkg -i libidn11.deb
+        if: success()  # Only install if the download is successful
+
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v2
         with:
