@@ -3,34 +3,29 @@ name: Build and test on push
 run-name: Build run ${{ github.run_id }} by ${{ github.actor }}
 
 on: push
-#defaults:
-     # run:
-      #  working-directory: ./TicTacToe
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-      uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Set up CMake
-      uses: actions/setup-cmake@v3
-      with:
-        cmake-version: '3.21'  # Adjust the CMake version as needed
+        uses: actions/setup-cmake@v3
+        with:
+          cmake-version: '3.21'  # Adjust the CMake version as needed
 
       - name: Set up Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        qtVersion: '6.6.0'  # Adjust the Qt version as needed
+        uses: jurplel/install-qt-action@v3
+        with:
+          qtVersion: '6.6.0'  # Adjust the Qt version as needed
 
-     - name: Configure project
-      run: cmake -B build -S .
+      - name: Configure project
+        run: cmake -B build -S .
 
       - name: Build project
-      run: cmake --build build --config Release
+        run: cmake --build build --config Release
 
-      #- name: Run tests
-      #run: cd build && ctest -C Release --output-on-failure
-
-
+      # - name: Run tests
+      #   run: cd build && ctest -C Release --output-on-failure
