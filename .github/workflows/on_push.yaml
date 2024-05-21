@@ -41,7 +41,7 @@ jobs:
           env
 
       - name: Verify Qt installation
-        run: qtchooser -print-env
+        run: qmake --version
 
       - name: Configure TicTacToe project
         run: cmake -B build -S ./TicTacToe
