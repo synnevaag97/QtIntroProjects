@@ -11,14 +11,15 @@ class TestPlayer : public QObject
 
 private slots:
     void init();
-    void setPlayerName();
-    void setPlayerMark();
-    void setActivePlayer();
 
     void getPlayerName();
     void getPlayerMark();
     void getPlayerMarkString();
     void isActivePlayer();
+
+    void setPlayerName();
+    void setPlayerMark();
+    void setActivePlayer();
 
 private:
     Player *player;

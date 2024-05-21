@@ -3,6 +3,8 @@
 Player::Player()
 {
     mark = PlayerMark::X;
+    activePlayer = false;
+    name = "";
 }
 
 void Player::setPlayerName(const QString name)
