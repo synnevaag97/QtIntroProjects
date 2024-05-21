@@ -36,6 +36,10 @@ jobs:
         with:
           qt-version: '6.6.0'  # Adjust the Qt version as needed
 
+      - name: Print Environment Variables
+        run: |
+          env
+
       #- name: Verify Qt installation
       #  run: qtchooser -print-env
 
@@ -50,11 +54,4 @@ jobs:
 
       # - name: Run test executable
       #   run: ./build/tests
-
-  print-env:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Print Environment Variables
-        run: |
-          env
+      
