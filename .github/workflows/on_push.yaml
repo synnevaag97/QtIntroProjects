@@ -3,16 +3,13 @@ name: Build and test on push
 run-name: Build run ${{ github.run_id }} by ${{ github.actor }}
 
 on: push
-
+#defaults:
+     # run:
+      #  working-directory: ./TicTacToe
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: ./TicTacToe
-
     steps:
       - name: Checkout repository
       uses: actions/checkout@v3
@@ -35,3 +32,5 @@ jobs:
 
       #- name: Run tests
       #run: cd build && ctest -C Release --output-on-failure
+
+
