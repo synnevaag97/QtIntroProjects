@@ -40,8 +40,8 @@ jobs:
         run: |
           env
 
-      #- name: Verify Qt installation
-      #  run: qtchooser -print-env
+      - name: Verify Qt installation
+        run: qtchooser -print-env
 
       - name: Configure TicTacToe project
         run: cmake -B build -S ./TicTacToe
@@ -52,6 +52,6 @@ jobs:
       # - name: Run tests
       #   run: cd build && ctest -C Release --output-on-failure
 
-      # - name: Run test executable
-      #   run: ./build/tests
+      - name: Run tests
+        run: ./build/tests
       
