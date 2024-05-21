@@ -68,7 +68,6 @@ Inspiration for TicTacToe bots: https://thesharperdev.com/coding-the-perfect-tic
 | 10 | Player scoreboard | Games played, games won, games lost, games tied. | ✅ |
 | 11 | Adjustable boardsize | Let the user decide the size of the board. |  |
 
-[Video of the app.](https://github.com/synnevaag97/QtIntroProjects/assets/72789025/55e2bc30-5dd6-48d3-9e89-33a539e68a5e)
 
+ [InGameVideo.webm](https://github.com/synnevaag97/QtIntroProjects/assets/72789025/33b5c7c3-cfef-449b-9eef-5d939349d010)
 
- 
