@@ -10,11 +10,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          path: TicTacToe/
 
       - name: Set up CMake
-        uses: actions/setup-cmake@v3
+        uses: lukka/get-cmake@v3
         with:
-          cmake-version: '3.21'  # Adjust the CMake version as needed
+          cmake-version: '3.5'  # Adjust the CMake version as needed
 
       - name: Set up Qt
         uses: jurplel/install-qt-action@v3
