@@ -71,3 +71,12 @@ Inspiration for TicTacToe bots: https://thesharperdev.com/coding-the-perfect-tic
 
  [InGameVideo.webm](https://github.com/synnevaag97/QtIntroProjects/assets/72789025/33b5c7c3-cfef-449b-9eef-5d939349d010)
 
+
+## Morse Code Converter
+An interactive morse converter that can convert English letters to morse code; the user can type either, and gets the converted text displayed in real time. The app can also play the morse code.
+
+
+
+
+## Site Crawler
+A site crawler for the online Qt documentation, starting at https://doc.qt.io/qt-6/classes.html, extracting and following all the links, and storing the information in a machine-readable format that allows comparison between different versions.
