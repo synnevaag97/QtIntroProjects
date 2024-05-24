@@ -75,6 +75,7 @@ Inspiration for TicTacToe bots: https://thesharperdev.com/coding-the-perfect-tic
 ## Morse Code Converter
 An interactive morse converter that can convert English letters to morse code; the user can type either, and gets the converted text displayed in real time. The app can also play the morse code.
 
+![MorseConverter](https://github.com/synnevaag97/QtIntroProjects/assets/72789025/2e0b3e9f-1e4f-4480-af75-a94a869cdb06)
 
 
 
