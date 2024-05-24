@@ -3,6 +3,15 @@ This repo takes on various Qt intro projects to learn Qt.
 
 The first four tasks is mainly QML programming to learn the language and some of its modules or elements. 
 
+- Traffic Light
+- Mouse Events
+- Anchors
+- QML Tutorial
+- Qt Widget Tutorial
+- TicTacToe
+- Morse Code Converter
+- Site Crawler
+
 ## Install
 Follow this guide for windows 11:
 https://www.youtube.com/watch?v=OoVNt-KJ96w
