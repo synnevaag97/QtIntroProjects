@@ -19,7 +19,6 @@ public:
 private:
     QMap<QChar, QString> asciiToMorseLUT;
     QMap<QString, QChar> morseToAsciiLUT;
-    MorseCodeSound *morseCodeSound;
 };
 
 #endif // CONVERTER_H

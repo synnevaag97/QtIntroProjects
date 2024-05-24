@@ -19,7 +19,6 @@ Converter::Converter()
         morseToAsciiLUT[i.value()] = i.key();
 
     // Initiate morse code audio.
-    morseCodeSound = new MorseCodeSound();
 }
 bool Converter::isMorseCode(const QString &text)
 {
@@ -57,6 +56,6 @@ QString Converter::asiicToMorse(const QString &text)
         converted_text.push_back(asciiToMorseLUT[text[i]]);
         converted_text.push_back(morseToAsciiLUT[" "]);
     }
-    morseCodeSound->playMorseCode("-");
+
     return converted_text;
 }

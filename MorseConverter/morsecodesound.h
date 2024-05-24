@@ -17,8 +17,8 @@ public:
 
 private:
     // Frequency of a single unit in Morse code (in milliseconds)
-    const int dotDurationMs = 100;
-    const int dashDurationMs = 300;
+    const int dotDurationMs = 75;
+    const int dashDurationMs = 200;
 
     // Frequencie and amplitude tunes for dot and dash sounds.
     const double frequency = 500;
